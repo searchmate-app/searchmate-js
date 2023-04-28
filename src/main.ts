@@ -14,7 +14,6 @@ app?.appendChild(container);
 button.addEventListener("click", () => {
   searchmate({
     container: "#searchmate-container",
-    apiKey: "YOUR_API_KEY",
     appId: "YOUR_APP_ID",
   });
 });
