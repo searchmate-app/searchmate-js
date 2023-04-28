@@ -16,7 +16,7 @@ function createPathElement(path: string) {
   return pathElement;
 }
 
-function createHeadingElement(headingText: string, path: string) {
+function createHeadingElement(headingText: string, _path: string) {
   const anchor = createElement("a", ["searchmate-result-heading"]);
   anchor.setAttribute("href", `#`);
   anchor.innerHTML += hashIcon;
@@ -43,11 +43,9 @@ export function getResultHTML(result: Result, query: string) {
   const parsedData = parseDocContent(children, query);
 
   parsedData.forEach((data) => {
-    let headingsCount = 0;
     if (data.type === HEADING_TYPE) {
       const heading = createHeadingElement(data.content, result.path);
       parent.appendChild(heading);
-      headingsCount += 1;
     } else {
       const other = createOtherElement(data.content);
       pathElement.appendChild(other);
