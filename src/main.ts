@@ -1,24 +1,20 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { searchmate } from "./searchmate";
+import "./searchmate.css";
+import "./style.css"
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const app = document.getElementById("app");
+const button = document.createElement("button");
+button.textContent = "search";
+app?.appendChild(button);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const container = document.createElement("div");
+container.id = "searchmate-container";
+app?.appendChild(container);
+
+button.addEventListener("click", () => {
+  searchmate({
+    container: "#searchmate-container",
+    apiKey: "YOUR_API_KEY",
+    appId: "YOUR_APP_ID",
+  });
+});
