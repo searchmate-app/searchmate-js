@@ -5,17 +5,20 @@
   --searchmate-padding-8: 32px;
   --searchmate-padding-10: 48px;
   --searchmate-padding-12: 64px;
-  --searchmate-container-radius: 6px;
+  --searchmate-container-radius: 7px;
   --searchmate-input-radius: 3px;
-  --searchamte-input-text-color: #3f3f46;
-  --searchmate-input-color: #fca5a5;
-  --searchmate-input-font-size: 18px;
-  --searchmate-search-color: #f4f4f5;
-  --searchamte-container-color: rgba(15, 23, 42, 0.5);
+  --searchmate-input-text-color: #3f3f46;
+  --searchmate-input-color: #f1f5f9;
+  --searchmate-input-font-size: 16px;
+  --searchmate-search-color: #fff;
+  --searchmate-container-color: rgba(15, 23, 42, 0.1);
+  --searchmate-search-icon-color: #334155;
+  --searchmate-input-placeholder-color: #cbd5e1;
+
   width: 100%;
   height: 100vh;
   min-height: 100%;
-  background-color: var(--searchamte-container-color);
+  background-color: var(--searchmate-container-color);
   position: fixed;
   margin: 0;
   top: 0;
@@ -27,6 +30,7 @@
   justify-content: center;
   box-sizing: border-box;
   font-family: inherit;
+  backdrop-filter: blur(2px);
 
   & .searchmate-search-container {
     width: 100%;
@@ -35,49 +39,63 @@
     background: var(--searchmate-search-color);
     margin: 0;
     box-sizing: border-box;
-    padding: var(--searchmate-padding-6);
     border-radius: var(--searchmate-container-radius);
     margin-top: var(--searchmate-padding-10);
+    border: 1px solid var(--searchmate-input-color);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
 
     @media (min-width: 600px) {
+      height: fit-content;
       max-height: 400px;
     }
-  }
 
-  & .searchmate-input-container {
-    width: 100%;
-    box-sizing: border-box;
-    height: 50px;
-    margin: 0;
-    padding: 0;
-    position: relative;
-
-    & .searchmate-search-icon {
-      width: 26px;
-      height: 26px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: var(--searchmate-padding-4);
-      color: var(--searchmate-input-color);
-      stroke-width: 2px;
-    }
-
-    & .searchmate-search-input {
+    & .searchmate-input-container {
       width: 100%;
-      height: 100%;
+      box-sizing: border-box;
+      height: 50px;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      border: none;
-      outline: none;
-      border-radius: var(--searchmate-input-radius);
-      font-size: var(--searchmate-input-font-size);
-      border: 2px solid var(--searchmate-input-color);
-      color: var(--searchmate-input-text-color);
-      padding-left: calc(
-        var(--searchmate-padding-4) + var(--searchmate-padding-8)
-      );
+      position: relative;
+
+      & .searchmate-search-icon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: var(--searchmate-padding-4);
+        color: var(--searchmate-input-color);
+        color: var(--searchmate-search-icon-color);
+        stroke-width: 2px;
+      }
+
+      & .searchmate-search-input {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        border-top-left-radius: var(--searchmate-container-radius);
+        border-top-right-radius: var(--searchmate-container-radius);
+        font-size: var(--searchmate-input-font-size);
+        color: var(--searchmate-input-text-color);
+        border-bottom: 1px solid var(--searchmate-input-color);
+        padding-left: calc(
+          var(--searchmate-padding-4) + var(--searchmate-padding-8)
+        );
+      }
+
+      & input::placeholder {
+        color: var(--searchmate-input-placeholder-color);
+      }
+    }
+
+    & .searchmate-results-container {
+      width: 100%;
+      height: fit-content;
+      min-height: 150px;
     }
   }
 }
