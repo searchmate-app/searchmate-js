@@ -1,3 +1,5 @@
+import { DocContent } from "./types";
+
 export function debounce(
   fn: any,
   delay: number,
@@ -46,4 +48,26 @@ export function createElementAndAppend(
   element.classList.add(...className);
   appendTo.appendChild(element);
   return element;
+}
+
+export function createElement(tag: string, className?: string[]) {
+  const element = document.createElement(tag);
+  if(!className) return element;
+  className.forEach((name) => element.classList.add(name));
+  return element;
+}
+
+export function parseDocContent(docContent: DocContent[], query: string) {
+  const headings = docContent?.filter(
+    (child: any) =>
+      child?.type === "heading" &&
+      child?.content?.toLowerCase()?.includes(query.toLowerCase())
+  );
+
+  if (headings.length > 0) return headings;
+
+  const alternativeContent = docContent?.find((child: any) =>
+    child?.content?.toLowerCase()?.includes(query.toLowerCase())
+  );
+  return alternativeContent ? [alternativeContent] : [];
 }

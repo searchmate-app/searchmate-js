@@ -13,6 +13,11 @@
     "vite": "^4.3.2"
   },
   "dependencies": {
-    "postcss-nesting": "^11.2.2"
+    "postcss-nesting": "^11.2.2",
+    "rehype-sanitize": "^5.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2"
   }
 }
