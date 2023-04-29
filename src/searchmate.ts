@@ -1,5 +1,5 @@
 import { QUERY_URL } from "./consts";
-import { getResultHTML } from "./html";
+import { getResultHTML, removeSelectedIndex, setSelectedIndex } from "./html";
 import { searchSvgIcon } from "./icons";
 import { Result, SearchMateProps } from "./types";
 import { createElementAndAppend } from "./util";
@@ -31,11 +31,12 @@ export function searchmate({ container, appId }: SearchMateProps) {
     "searchmate-search-input",
   ]);
   searchInput.setAttribute("placeholder", "Type to search...");
-  searchInput.focus();
 
   const resultContainer = createElementAndAppend("div", searchContainer, [
     "searchmate-results-container",
   ]);
+
+  let selectedResultIndex = 0;
 
   function fetchResults({ query, appId }: { query: string; appId: string }) {
     if (query.length <= 0) return;
@@ -50,12 +51,14 @@ export function searchmate({ container, appId }: SearchMateProps) {
       })
       .then((data) => {
         resultContainer.innerHTML = "";
+        selectedResultIndex = 0;
         const results = data.results as Result[];
         if (results.length <= 0) return;
         results.forEach((result) => {
           const resultEl = getResultHTML(result, query);
           resultContainer.appendChild(resultEl);
         });
+        setSelectedIndex(selectedResultIndex, resultContainer);
       })
       .catch((e) => {
         console.log(e);
@@ -69,4 +72,44 @@ export function searchmate({ container, appId }: SearchMateProps) {
     // @ts-ignore
     debouncedFetchResults({ appId: appId, query: target.value });
   });
+
+  function handleKeyboardEvent(e: KeyboardEvent) {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const { end } = setSelectedIndex(
+        selectedResultIndex + 1,
+        resultContainer,
+      );
+      console.log(end);
+      if (!end) {
+        removeSelectedIndex(selectedResultIndex, resultContainer);
+        selectedResultIndex += 1;
+      }
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (selectedResultIndex <= 0) return;
+      removeSelectedIndex(selectedResultIndex, resultContainer);
+      selectedResultIndex -= 1;
+      setSelectedIndex(selectedResultIndex, resultContainer);
+    }
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      console.log("Enter");
+    }
+  }
+
+  // Event listener for input focus
+  searchInput.addEventListener("focus", () => {
+    document.addEventListener("keydown", handleKeyboardEvent);
+  });
+
+  // Event listener for input blur
+  searchInput.addEventListener("blur", () => {
+    document.removeEventListener("keydown", handleKeyboardEvent);
+  });
+
+  searchInput.focus();
 }

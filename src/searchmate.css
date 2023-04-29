@@ -18,11 +18,14 @@
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
   --searchmate-search-icon-color: #334155;
   --searchmate-input-placeholder-color: #cbd5e1;
+  --searchmate-selected-bg: #fee2e260;
+  --searchmate-selected-border-color: #fecaca60;
 
   & * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
   }
 
   width: 100%;
@@ -109,7 +112,7 @@
       padding-top: var(--searchmate-padding-4);
       overflow-y: auto;
       max-height: 500px;
-      
+
       @media (min-width: 600px) {
         max-height: 400px;
       }
@@ -124,19 +127,19 @@
 
         & .searchmate-result-path {
           display: flex;
-          flex-direction: column;
-          /* background-color: var(--searchmate-result-bg); */
+          flex-direction: column;          
           padding: var(--searchmate-padding-4);
           border-radius: var(--searchmate-input-radius);
           color: inherit;
           font-weight: bold;
+          border: 1px solid #ffffff00;
 
-          & .searchmate-result-path-header{
+          & .searchmate-result-path-header {
             display: flex;
             align-items: center;
           }
 
-          & .searchmate-result-other{
+          & .searchmate-result-other {
             font-weight: normal;
           }
 
@@ -146,6 +149,11 @@
             margin-right: var(--searchmate-padding-4);
             color: inherit;
           }
+        }
+
+        & .searchmate-result-path.searchmate-result-selected {
+          background-color: var(--searchmate-selected-bg);
+          border: 1px solid var(--searchmate-selected-border-color);
         }
 
         & .searchmate-result-heading {
@@ -159,6 +167,7 @@
           background-color: var(--searchmate-result-bg);
           margin-left: var(--searchmate-padding-8);
           position: relative;
+          border: 1px solid #ffffff00;
 
           & * {
             font-size: inherit;
@@ -172,6 +181,11 @@
             margin-right: var(--searchmate-padding-4);
             color: inherit;
           }
+        }
+
+        & .searchmate-result-heading.searchmate-result-selected {
+          background-color: var(--searchmate-selected-bg);
+          border: 1px solid var(--searchmate-selected-border-color);
         }
       }
     }

@@ -6,7 +6,7 @@ export function createElementAndAppend(
   className: [string],
 ) {
   const element = document.createElement(tag);
-  element.classList.add(...className);
+  className.forEach((name) => element.classList.add(name));
   appendTo.appendChild(element);
   return element;
 }
