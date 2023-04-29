@@ -1,10 +1,10 @@
-import "./searchmate.css";
 import { searchmate } from "./searchmate";
+import "./searchmate.css";
 import "./style.css";
 
 const app = document.getElementById("app");
 const button = document.createElement("button");
-button.textContent = "search";
+button.textContent = "search"
 app?.appendChild(button);
 const appId = import.meta.env.VITE_PUBLIC_APP_ID;
 
