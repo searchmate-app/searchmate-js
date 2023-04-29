@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*": "pnpm run lint && pnpm run format"
+    "*": "pnpm run format"
   },
   "devDependencies": {
     "husky": "^8.0.0",
