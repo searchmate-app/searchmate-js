@@ -5,10 +5,10 @@ import "./style.css";
 const app = document.getElementById("app");
 const button = document.createElement("button");
 button.textContent = "search"
-app?.appendChild(button);
+app?.appendChild(button)
 const appId = import.meta.env.VITE_PUBLIC_APP_ID
 
-const container = document.createElement("div");
+const container = document.createElement("div")
 
 container.id = "searchmate-container";
 app?.appendChild(container);
