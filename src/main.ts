@@ -6,7 +6,7 @@ const app = document.getElementById("app");
 const button = document.createElement("button");
 button.textContent = "search"
 app?.appendChild(button);
-const appId = import.meta.env.VITE_PUBLIC_APP_ID;
+const appId = import.meta.env.VITE_PUBLIC_APP_ID
 
 const container = document.createElement("div");
 
