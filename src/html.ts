@@ -9,7 +9,7 @@ function createPathElement(path: string) {
   const header = createElement("p", ["searchmate-result-path-header"]);
   header.innerHTML += pathIcon;
   const textSpan = createElement("span");
-  textSpan.textContent = "/ " + path;
+  textSpan.textContent = `/${path}`;
   header.appendChild(textSpan);
   pathElement.appendChild(header);
   pathElement.setAttribute("href", "#");
@@ -18,7 +18,7 @@ function createPathElement(path: string) {
 
 function createHeadingElement(headingText: string, _path: string) {
   const anchor = createElement("a", ["searchmate-result-heading"]);
-  anchor.setAttribute("href", `#`);
+  anchor.setAttribute("href", "#");
   anchor.innerHTML += hashIcon;
   anchor.innerHTML += parser.processSync(headingText).value;
   return anchor;

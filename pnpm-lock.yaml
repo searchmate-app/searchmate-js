@@ -1,16 +1,20 @@
 lockfileVersion: 5.4
 
 specifiers:
+  husky: ^8.0.0
+  just-debounce-it: ^3.2.0
   postcss-nesting: ^11.2.2
   rehype-sanitize: ^5.0.1
   rehype-stringify: ^9.0.3
   remark-parse: ^10.0.1
   remark-rehype: ^10.1.0
+  rome: 12.0.0
   typescript: ^5.0.2
   unified: ^10.1.2
   vite: ^4.3.2
 
 dependencies:
+  just-debounce-it: 3.2.0
   postcss-nesting: 11.2.2
   rehype-sanitize: 5.0.1
   rehype-stringify: 9.0.3
@@ -19,6 +23,8 @@ dependencies:
   unified: 10.1.2
 
 devDependencies:
+  husky: 8.0.3
+  rome: 12.0.0
   typescript: 5.0.4
   vite: 4.3.3
 
@@ -225,6 +231,54 @@ packages:
   /@esbuild/win32-x64/0.17.18:
     resolution: {integrity: sha512-qU25Ma1I3NqTSHJUOKi9sAH1/Mzuvlke0ioMJRthLXKm7JiSKVwFghlGbDLOO2sARECGhja4xYfRAZNPAkooYg==}
     engines: {node: '>=12'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-darwin-arm64/12.0.0:
+    resolution: {integrity: sha512-kEFCzU6cgy6vfY0mkMzq57ea3srqV5X2wyCAxjVfA2JF7fioq695uWhy7yOCBW+nUUFIz62N9v1nf/aYqX8XkA==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-darwin-x64/12.0.0:
+    resolution: {integrity: sha512-YDevVPKrkRFdjjM/3zOpOWI5mEY2ivjKM2eR8Yqv9xH3SZhyD/t67f/xo7Azp6NkGUVXSnHLGdkmIg+qrYgz5A==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-linux-arm64/12.0.0:
+    resolution: {integrity: sha512-n2LJg6eAZENUcJF99wjDeqQCr/40IqGUJDbX7NwiU1RvCy+RBZNmhcmSAaKOc6rCoLUcM9W5q+H4jfn4bWfJBA==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-linux-x64/12.0.0:
+    resolution: {integrity: sha512-VuQO4eOrKmfrLrc8KzMaZypz3i1rD9FXRxwOFk6ha16DNHV+17dRQYm7jRZ1p+HrXdjAJYTScxR/E03yGLThlQ==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-win32-arm64/12.0.0:
+    resolution: {integrity: sha512-lvOh5/B8YuQdI2ieGJnJ6CUMZxvVwA8+1VDkEZJyl5IEF8AXzbXYx4k6SFA5a79cfXEL9tJuJy0rn+Zs/+1yJQ==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@rometools/cli-win32-x64/12.0.0:
+    resolution: {integrity: sha512-yTfz71k8+9QIDzglKnMbEMMv1JUk30qfeSomgEUG2v0qDSbSq0Gs1ff0H0dysYOHLvZZmWA3IheOY/SC8fj1nA==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -446,6 +500,12 @@ packages:
     resolution: {integrity: sha512-0quDb7s97CfemeJAnW9wC0hw78MtW7NU3hqtCD75g2vFlDLt36llsYD7uB7SUzojLMP24N5IatXf7ylGXiGG9A==}
     dev: false
 
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
   /is-buffer/2.0.5:
     resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
     engines: {node: '>=4'}
@@ -454,6 +514,10 @@ packages:
   /is-plain-obj/4.1.0:
     resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
     engines: {node: '>=12'}
+    dev: false
+
+  /just-debounce-it/3.2.0:
+    resolution: {integrity: sha512-WXzwLL0745uNuedrCsCs3rpmfD6DBaf7uuVwaq98/8dafURfgQaBsSpjiPp5+CW6Vjltwy9cOGI6qE71b3T8iQ==}
     dev: false
 
   /kleur/4.1.5:
@@ -778,6 +842,20 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /rome/12.0.0:
+    resolution: {integrity: sha512-w/tLvLj5PGUCx3R+Kna08BMq4zL83Xzh9spvrqoWa3Nkzk16SkD8JSpyWWP9WhI2r3qv3Xvc7FnYZ4QDnjAiYg==}
+    engines: {node: '>=14.*'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@rometools/cli-darwin-arm64': 12.0.0
+      '@rometools/cli-darwin-x64': 12.0.0
+      '@rometools/cli-linux-arm64': 12.0.0
+      '@rometools/cli-linux-x64': 12.0.0
+      '@rometools/cli-win32-arm64': 12.0.0
+      '@rometools/cli-win32-x64': 12.0.0
     dev: true
 
   /sade/1.8.1:

@@ -1,5 +1,5 @@
-import { searchmate } from "./searchmate";
 import "./searchmate.css";
+import { searchmate } from "./searchmate";
 import "./style.css";
 
 const app = document.getElementById("app");
@@ -9,6 +9,7 @@ app?.appendChild(button);
 const appId = import.meta.env.VITE_PUBLIC_APP_ID;
 
 const container = document.createElement("div");
+
 container.id = "searchmate-container";
 app?.appendChild(container);
 

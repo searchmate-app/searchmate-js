@@ -2,7 +2,8 @@ import { QUERY_URL } from "./consts";
 import { getResultHTML } from "./html";
 import { searchSvgIcon } from "./icons";
 import { Result, SearchMateProps } from "./types";
-import { createElementAndAppend, debounce } from "./util";
+import { createElementAndAppend } from "./util";
+import debounce from "just-debounce-it";
 
 export function searchmate({ container, appId }: SearchMateProps) {
   const containerEl = document.querySelector(container);

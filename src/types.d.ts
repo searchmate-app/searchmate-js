@@ -7,10 +7,10 @@ type DocContent = {
   type: string;
   content: string;
   depth?: number;
-}
+};
 
 type Result = {
   id: string;
   path: string;
-  content: DocContent[]
-}
+  content: DocContent[];
+};
