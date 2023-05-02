@@ -1,4 +1,4 @@
-import { QUERY_URL } from "./consts";
+import { QUERY_URL, SELECTED_RESULT_CLASS } from "./consts";
 import {
   getResultHTML,
   removeSelectedIndex,
@@ -11,7 +11,11 @@ import { Result, SearchMateProps } from "./types";
 import { createElementAndAppend } from "./util";
 import debounce from "just-debounce-it";
 
-export function searchmate({ container, appId }: SearchMateProps) {
+export function searchmate({
+  container,
+  appId,
+  urlPrefix = undefined,
+}: SearchMateProps) {
   const containerEl = document.querySelector(container);
   if (!containerEl) {
     throw new Error(`Container element not found: ${container}`);
@@ -57,7 +61,7 @@ export function searchmate({ container, appId }: SearchMateProps) {
         const results = data.results as Result[];
         if (results.length <= 0) return;
         results.forEach((result) => {
-          const resultEl = getResultHTML(result, query);
+          const resultEl = getResultHTML(result, query, urlPrefix);
           resultContainer.appendChild(resultEl);
         });
         setSelectedIndex(selectedResultIndex, resultContainer);
@@ -96,7 +100,16 @@ export function searchmate({ container, appId }: SearchMateProps) {
 
     if (e.key === "Enter") {
       e.preventDefault();
-      console.log("Enter");
+      const selectedResult = resultContainer.querySelector(
+        `.${SELECTED_RESULT_CLASS}`,
+      ) as HTMLAnchorElement;
+      if (selectedResult) {
+        if (e.ctrlKey) {
+          window.open(selectedResult.href, "_blank");
+          return;
+        }
+        selectedResult.click();
+      }
     }
   }
 
@@ -128,13 +141,17 @@ export function searchmate({ container, appId }: SearchMateProps) {
     resultContainer.addEventListener("touchstart", handleTouchStart);
   }
 
+  function close() {
+    resultContainer.removeEventListener("mousemove", handleMouseMove);
+    if ("ontouchstart" in window) {
+      resultContainer.removeEventListener("touchstart", handleTouchStart);
+    }
+    backgroundEl.remove();
+  }
+
   backgroundEl.addEventListener("click", (e) => {
     if (e.target === backgroundEl) {
-      resultContainer.removeEventListener("mousemove", handleMouseMove);
-      if ("ontouchstart" in window) {
-        resultContainer.removeEventListener("touchstart", handleTouchStart);
-      }
-      backgroundEl.remove();
+      close();
     }
   });
 

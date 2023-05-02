@@ -8,7 +8,7 @@ import { parser } from "./md-parser";
 import { Result } from "./types";
 import { createElement, parseDocContent } from "./util";
 
-function createPathElement(path: string) {
+function createPathElement(path: string, prefix?: string) {
   const pathElement = createElement("a", [
     "searchmate-result-part",
     "searchmate-result-path",
@@ -19,18 +19,30 @@ function createPathElement(path: string) {
   textSpan.textContent = `/${path}`;
   header.appendChild(textSpan);
   pathElement.appendChild(header);
-  pathElement.setAttribute("href", "#");
+  const pathUnified = prefix ? `${prefix}/${path}` : `/${path}`;
+  pathElement.setAttribute("href", pathUnified);
   return pathElement;
 }
 
-function createHeadingElement(headingText: string, _path: string) {
+function createHeadingElement(
+  headingText: string,
+  path: string,
+  prefix?: string,
+) {
   const anchor = createElement("a", [
     "searchmate-result-part",
     "searchmate-result-heading",
   ]);
-  anchor.setAttribute("href", "#");
   anchor.innerHTML += hashIcon;
-  anchor.innerHTML += parser.processSync(headingText).value;
+  const headingEl = parser.processSync(headingText).value;
+
+  // get the id of the heading
+  const id = headingEl.match(/id="(.*)"/)?.[1];
+
+  anchor.innerHTML += headingEl;
+
+  const pathUnified = prefix ? `${prefix}/${path}` : `/${path}`;
+  anchor.setAttribute("href", `${pathUnified}#${id}`);
   return anchor;
 }
 
@@ -43,9 +55,9 @@ function createOtherElement(content: string) {
   return container;
 }
 
-export function getResultHTML(result: Result, query: string) {
+export function getResultHTML(result: Result, query: string, prefix?: string) {
   const parent = createElement("div", ["searchmate-result"]);
-  const pathElement = createPathElement(result.path);
+  const pathElement = createPathElement(result.path, prefix);
   parent.appendChild(pathElement);
 
   const children = result.content;
@@ -54,7 +66,7 @@ export function getResultHTML(result: Result, query: string) {
 
   parsedData.forEach((data) => {
     if (data.type === HEADING_TYPE) {
-      const heading = createHeadingElement(data.content, result.path);
+      const heading = createHeadingElement(data.content, result.path, prefix);
       parent.appendChild(heading);
     } else {
       // skip yaml for now, we have to get a way to display it properly
