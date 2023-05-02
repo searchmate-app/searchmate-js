@@ -5,7 +5,7 @@ import {
 } from "./consts";
 import { hashIcon, pathIcon } from "./icons";
 import { parser } from "./md-parser";
-import { Result } from "./types";
+import { Result } from "./props";
 import { createElement, parseDocContent } from "./util";
 
 function createPathElement(path: string, prefix?: string) {
@@ -34,7 +34,7 @@ function createHeadingElement(
     "searchmate-result-heading",
   ]);
   anchor.innerHTML += hashIcon;
-  const headingEl = parser.processSync(headingText).value;
+  const headingEl = parser.processSync(headingText).value as string;
 
   // get the id of the heading
   const id = headingEl.match(/id="(.*)"/)?.[1];

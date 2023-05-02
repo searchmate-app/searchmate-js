@@ -7,7 +7,7 @@ import {
   setSelectedIndexWithTouch,
 } from "./html";
 import { searchSvgIcon } from "./icons";
-import { Result, SearchMateProps } from "./types";
+import { Result, SearchMateProps } from "./props";
 import { createElementAndAppend } from "./util";
 import debounce from "just-debounce-it";
 

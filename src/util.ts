@@ -1,4 +1,4 @@
-import { DocContent } from "./types";
+import { DocContent } from "./props";
 
 export function createElementAndAppend(
   tag: string,
