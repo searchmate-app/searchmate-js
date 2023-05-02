@@ -1,4 +1,8 @@
-import { HEADING_TYPE } from "./consts";
+import {
+  CLICKABLE_RESULT_CLASS,
+  HEADING_TYPE,
+  SELECTED_RESULT_CLASS,
+} from "./consts";
 import { hashIcon, pathIcon } from "./icons";
 import { parser } from "./md-parser";
 import { Result } from "./types";
@@ -64,10 +68,10 @@ export function getResultHTML(result: Result, query: string) {
 }
 
 export function setSelectedIndex(index: number, resultContainer: HTMLElement) {
-  const results = resultContainer.querySelectorAll(".searchmate-result-part");
+  const results = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
   const result = results[index];
   if (!result) return { end: true };
-  result.classList.add("searchmate-result-selected");
+  result.classList.add(SELECTED_RESULT_CLASS);
   result.scrollIntoView({
     behavior: "smooth",
     block: "center",
@@ -79,8 +83,72 @@ export function removeSelectedIndex(
   index: number,
   resultContainer: HTMLElement,
 ) {
-  const results = resultContainer.querySelectorAll(".searchmate-result-part");
+  const results = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
   const result = results[index];
   if (!result) return;
-  result.classList.remove("searchmate-result-selected");
+  result.classList.remove(SELECTED_RESULT_CLASS);
+}
+
+export function setSelectedIndexWithMouse(
+  event: MouseEvent,
+  resultContainer: HTMLElement,
+) {
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+
+  const elements = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
+
+  let newIndex = -1;
+
+  // Iterate through each element and add the selected class if the mouse is over it
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i];
+    const { top, bottom, left, right } = element.getBoundingClientRect();
+
+    if (
+      mouseY >= top &&
+      mouseY <= bottom &&
+      mouseX >= left &&
+      mouseX <= right
+    ) {
+      newIndex = i;
+      element.classList.add(SELECTED_RESULT_CLASS);
+    } else {
+      elements[i].classList.remove(SELECTED_RESULT_CLASS);
+    }
+  }
+
+  return newIndex;
+}
+
+export function setSelectedIndexWithTouch(
+  event: TouchEvent,
+  resultContainer: HTMLElement,
+) {
+  const touchX = event.touches[0].clientX;
+  const touchY = event.touches[0].clientY;
+
+  const elements = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
+
+  let newIndex = -1;
+
+  // Iterate through each element and add the selected class if the mouse is over it
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i];
+    const { top, bottom, left, right } = element.getBoundingClientRect();
+
+    if (
+      touchY >= top &&
+      touchY <= bottom &&
+      touchX >= left &&
+      touchX <= right
+    ) {
+      newIndex = i;
+      element.classList.add(SELECTED_RESULT_CLASS);
+    } else {
+      elements[i].classList.remove(SELECTED_RESULT_CLASS);
+    }
+  }
+
+  return newIndex;
 }

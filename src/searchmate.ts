@@ -1,5 +1,11 @@
 import { QUERY_URL } from "./consts";
-import { getResultHTML, removeSelectedIndex, setSelectedIndex } from "./html";
+import {
+  getResultHTML,
+  removeSelectedIndex,
+  setSelectedIndex,
+  setSelectedIndexWithMouse,
+  setSelectedIndexWithTouch,
+} from "./html";
 import { searchSvgIcon } from "./icons";
 import { Result, SearchMateProps } from "./types";
 import { createElementAndAppend } from "./util";
@@ -14,10 +20,6 @@ export function searchmate({ container, appId }: SearchMateProps) {
   const backgroundEl = createElementAndAppend("div", containerEl, [
     "searchmate-container",
   ]);
-
-  backgroundEl.addEventListener("click", (e) => {
-    if (e.target === backgroundEl) backgroundEl.remove();
-  });
 
   const searchContainer = createElementAndAppend("div", backgroundEl, [
     "searchmate-search-container",
@@ -60,9 +62,7 @@ export function searchmate({ container, appId }: SearchMateProps) {
         });
         setSelectedIndex(selectedResultIndex, resultContainer);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((_e) => {});
   }
 
   const debouncedFetchResults = debounce(fetchResults, 300);
@@ -80,7 +80,6 @@ export function searchmate({ container, appId }: SearchMateProps) {
         selectedResultIndex + 1,
         resultContainer,
       );
-      console.log(end);
       if (!end) {
         removeSelectedIndex(selectedResultIndex, resultContainer);
         selectedResultIndex += 1;
@@ -109,6 +108,34 @@ export function searchmate({ container, appId }: SearchMateProps) {
   // Event listener for input blur
   searchInput.addEventListener("blur", () => {
     document.removeEventListener("keydown", handleKeyboardEvent);
+  });
+
+  //handle mouse move
+  function handleMouseMove(event: MouseEvent) {
+    const newIndex = setSelectedIndexWithMouse(event, resultContainer);
+    if (newIndex >= 0) selectedResultIndex = newIndex;
+  }
+
+  //remove the mousemove event listener when the container is removed
+  resultContainer.addEventListener("mousemove", handleMouseMove);
+
+  //add event listener for touch events
+  function handleTouchStart(event: TouchEvent) {
+    const newIndex = setSelectedIndexWithTouch(event, resultContainer);
+    if (newIndex >= 0) selectedResultIndex = newIndex;
+  }
+  if ("ontouchstart" in window) {
+    resultContainer.addEventListener("touchstart", handleTouchStart);
+  }
+
+  backgroundEl.addEventListener("click", (e) => {
+    if (e.target === backgroundEl) {
+      resultContainer.removeEventListener("mousemove", handleMouseMove);
+      if ("ontouchstart" in window) {
+        resultContainer.removeEventListener("touchstart", handleTouchStart);
+      }
+      backgroundEl.remove();
+    }
   });
 
   searchInput.focus();
