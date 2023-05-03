@@ -1,5 +1,4 @@
 import { searchmate } from "./searchmate";
-import "./searchmate.css";
 import "./style.css";
 
 const app = document.getElementById("app");
