@@ -8,9 +8,9 @@ import {
 } from "./html";
 import { searchSvgIcon } from "./icons";
 import { Result, SearchMateProps } from "./props";
+import "./searchmate.css";
 import { createElementAndAppend } from "./util";
 import debounce from "just-debounce-it";
-import "./searchmate.css";
 
 export function searchmate({
   container,
