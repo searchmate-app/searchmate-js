@@ -1,13 +1,14 @@
 {
   "name": "searchmate-js",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "types": "dist/searchmate.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
