@@ -131,6 +131,7 @@
           padding: var(--searchmate-padding-4);
           border-radius: var(--searchmate-input-radius);
           color: inherit;
+          text-align: left;
           font-weight: bold;
           border: 1px solid #ffffff00;
 
