@@ -61,7 +61,7 @@ export function searchmate({
         const results = data.results as Result[];
         if (results.length <= 0) return;
         results.forEach((result) => {
-          const resultEl = getResultHTML(result, query, urlPrefix);
+          const resultEl = getResultHTML(result, urlPrefix);
           resultContainer.appendChild(resultEl);
         });
         setSelectedIndex(selectedResultIndex, resultContainer);

@@ -8,6 +8,7 @@ type DocContent = {
   type: string;
   content: string;
   depth?: number;
+  headingId?: string;
 };
 
 type Result = {
