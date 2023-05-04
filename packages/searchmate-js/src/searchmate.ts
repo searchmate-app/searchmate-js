@@ -13,14 +13,10 @@ import { createElementAndAppend } from "./util";
 import debounce from "just-debounce-it";
 
 export function searchmate({
-  container,
   appId,
   urlPrefix = undefined,
 }: SearchMateProps) {
-  const containerEl = document.querySelector(container);
-  if (!containerEl) {
-    throw new Error(`Container element not found: ${container}`);
-  }
+  const containerEl = document.body;
 
   const backgroundEl = createElementAndAppend("div", containerEl, [
     "searchmate-container",

@@ -14,7 +14,6 @@ app?.appendChild(container);
 
 button.addEventListener("click", () => {
   searchmate({
-    container: "#searchmate-container",
     appId: appId,
     urlPrefix: "https://tailwindcss.com/docs",
   });

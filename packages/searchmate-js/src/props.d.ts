@@ -1,8 +1,9 @@
 export type SearchMateProps = {
-  container: string;
   appId: string;
   urlPrefix?: string;
 };
+
+export declare function searchmate({ appId, urlPrefix }: SearchMateProps): void;
 
 type DocContent = {
   type: string;

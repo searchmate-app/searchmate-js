@@ -19,7 +19,8 @@ export default defineConfig({
   plugins: [
     dts({
       copyDtsFiles: true,
-      include: ["src/searchmate.ts", "src/props.d.ts"],
+      include: ["src/props.d.ts"],
+      insertTypesEntry: true,
     }),
   ],
 });
