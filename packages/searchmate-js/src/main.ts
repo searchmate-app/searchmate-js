@@ -16,5 +16,8 @@ button.addEventListener("click", () => {
   searchmate({
     appId: appId,
     urlPrefix: "https://tailwindcss.com/docs",
+    onClose: () => {
+      console.log("Closed mi pana");
+    },
   });
 });

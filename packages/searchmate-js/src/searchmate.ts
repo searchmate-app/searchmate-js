@@ -15,6 +15,7 @@ import debounce from "just-debounce-it";
 export function searchmate({
   appId,
   urlPrefix = undefined,
+  onClose = undefined,
 }: SearchMateProps) {
   const containerEl = document.body;
 
@@ -144,6 +145,7 @@ export function searchmate({
       resultContainer.removeEventListener("touchstart", handleTouchStart);
     }
     backgroundEl.remove();
+    if (onClose) onClose();
   }
 
   backgroundEl.addEventListener("click", (e) => {

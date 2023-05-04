@@ -1,5 +1,6 @@
 export type SearchMateProps = {
   appId: string;
+  onClose?: () => void;
   urlPrefix?: string;
 };
 
