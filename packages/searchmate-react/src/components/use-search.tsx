@@ -7,5 +7,9 @@ export function useSearch() {
     setIsOpen(true);
   };
 
-  return { isOpen, onOpen };
+  const onClose = () => {
+    setIsOpen(false);
+  };
+
+  return { isOpen, onOpen, onClose };
 }
