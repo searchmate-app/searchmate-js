@@ -60,8 +60,8 @@ export function searchmate({
         resultContainer.innerHTML = "";
         selectedResultIndex = 0;
         const results = data.results as Result[];
-        if (results.length <= 0) {          
-          const notFound = getNotFoundHTML(query)
+        if (results.length <= 0) {
+          const notFound = getNotFoundHTML(query);
           resultContainer.appendChild(notFound);
           return;
         }
@@ -156,6 +156,13 @@ export function searchmate({
     backgroundEl.remove();
     if (onClose) onClose();
   }
+
+  // add event listener for escape
+  searchContainer.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      close();
+    }
+  });
 
   backgroundEl.addEventListener("click", (e) => {
     if (e.target === backgroundEl) {
