@@ -166,7 +166,7 @@ export function setSelectedIndexWithTouch(
 
 export function getNotFoundHTML(query: string) {
   const notFound = createElement("div", ["searchmate-not-found"]);
-  notFound.innerHTML += xCircleIcon
+  notFound.innerHTML += xCircleIcon;
   const notFoundText = createElement("p", ["searchmate-not-found-text"]);
   notFoundText.textContent = "No results found for ";
   const querySpan = createElement("span", ["searchmate-not-found-query"]);
