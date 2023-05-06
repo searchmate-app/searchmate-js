@@ -1,7 +1,6 @@
 import "./App.css";
 import { Search, useSearch } from "./components";
 import { APP_ID } from "./consts";
-import "searchmate-js/styles";
 
 function App() {
   const { isOpen, onOpen, onClose } = useSearch();
