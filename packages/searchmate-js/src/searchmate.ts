@@ -1,5 +1,6 @@
 import { QUERY_URL, SELECTED_RESULT_CLASS } from "./consts";
 import {
+  getNotFoundHTML,
   getResultHTML,
   removeSelectedIndex,
   setSelectedIndex,
@@ -17,6 +18,7 @@ export function searchmate({
   urlPrefix = undefined,
   onClose = undefined,
 }: SearchMateProps) {
+  const foundResults: Result[] = [];
   const containerEl = document.body;
 
   const backgroundEl = createElementAndAppend("div", containerEl, [
@@ -54,10 +56,17 @@ export function searchmate({
         return data;
       })
       .then((data) => {
+        foundResults.length = 0;
         resultContainer.innerHTML = "";
         selectedResultIndex = 0;
         const results = data.results as Result[];
-        if (results.length <= 0) return;
+        if (results.length <= 0) {          
+          const notFound = getNotFoundHTML(query)
+          resultContainer.appendChild(notFound);
+          return;
+        }
+        // @ts-ignore
+        foundResults.push(results);
         results.forEach((result) => {
           const resultEl = getResultHTML(result, urlPrefix);
           resultContainer.appendChild(resultEl);
@@ -80,7 +89,7 @@ export function searchmate({
       e.preventDefault();
       const { end } = setSelectedIndex(
         selectedResultIndex + 1,
-        resultContainer,
+        resultContainer
       );
       if (!end) {
         removeSelectedIndex(selectedResultIndex, resultContainer);
@@ -99,7 +108,7 @@ export function searchmate({
     if (e.key === "Enter") {
       e.preventDefault();
       const selectedResult = resultContainer.querySelector(
-        `.${SELECTED_RESULT_CLASS}`,
+        `.${SELECTED_RESULT_CLASS}`
       ) as HTMLAnchorElement;
       if (selectedResult) {
         if (e.ctrlKey) {

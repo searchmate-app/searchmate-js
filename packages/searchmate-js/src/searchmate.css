@@ -189,6 +189,26 @@
           border: 1px solid var(--searchmate-selected-border-color);
         }
       }
+
+      & .searchmate-not-found{
+        width: 100%;
+        padding-top: var(--searchmate-padding-8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--searchmate-result-color);
+        opacity: 0.5;
+
+        & .searchmate-x-notfound-circle{
+          width: 30px;
+          height: 30px;
+          margin-bottom: var(--searchmate-padding-4);
+        }
+
+        & .searchmate-not-found-query{
+          font-weight: bold;
+        }
+      }
     }
   }
 }
