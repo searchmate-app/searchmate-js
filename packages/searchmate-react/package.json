@@ -1,8 +1,21 @@
 {
   "name": "searchmate-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/searchmate-react.es.js",
+  "module": "dist/searchmate-react.es.js",
+  "types": "dist/types.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/searchmate-react.es.js",
+      "require": "./dist/searchmate-react.es.js"
+    },
+    "./dist/index.js": "./dist/searchmate-react.es.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -21,6 +34,7 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "rome": "12.0.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0"
   }
 }

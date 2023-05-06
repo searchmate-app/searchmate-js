@@ -1,9 +1,6 @@
+import { type SearchProps } from "./types";
 import { useEffect } from "react";
-import { type SearchMateProps, searchmate } from "searchmate-js";
-
-interface SearchProps extends SearchMateProps {
-  isOpen: boolean;
-}
+import { searchmate } from "searchmate-js";
 
 export function Search({ appId, isOpen, urlPrefix, onClose }: SearchProps) {
   useEffect(() => {
