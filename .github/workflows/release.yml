@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  repository-projects: read|write
+  repository-projects: write
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
