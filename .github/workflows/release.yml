@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+permissions: all
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
@@ -29,8 +31,6 @@ jobs:
 
       - name: Publish to npm
         id: changesets
-        permissions:
-          repository-projects: write
         uses: changesets/action@v1
         with:
           publish: pnpm publish-packages
