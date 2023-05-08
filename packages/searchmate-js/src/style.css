@@ -24,6 +24,7 @@
   --searchmate-selected-bg: #fee2e260;
   --searchmate-selected-border-color: #fecaca60;
   --searchmate-link-colors: #ef4444;
+  --searchmate-path-body-color: #737373;
 }
 
 :root.theme-dark {
@@ -31,7 +32,7 @@
   --color-bg: #000;
   --color-text: #fff;
 
-  
+
   --searchmate-input-text-color: #f4f4f5;
   --searchmate-input-color: #27272a;
   --searchmate-result-color: #fafafa;
@@ -43,6 +44,7 @@
   --searchmate-input-placeholder-color: #737373;
   --searchmate-selected-border-color: #fecaca;
   --searchmate-link-colors: #ef4444;
+  --searchmate-path-body-color: #a3a3a3;
 }
 
 body {
