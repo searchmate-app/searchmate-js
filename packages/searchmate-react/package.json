@@ -6,6 +6,9 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "url": "https://github.com/searchmate-app/searchmate-js"
+  },
   "main": "dist/searchmate-react.es.js",
   "module": "dist/searchmate-react.es.js",
   "types": "dist/types.d.ts",
