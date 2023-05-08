@@ -4,6 +4,7 @@ import { APP_ID } from "./consts";
 
 function App() {
   const { isOpen, onOpen, onClose } = useSearch();
+
   return (
     <>
       <button onClick={onOpen} type="submit">

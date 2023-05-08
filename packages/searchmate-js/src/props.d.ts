@@ -2,6 +2,7 @@ export type SearchMateProps = {
   appId: string;
   onClose?: () => void;
   urlPrefix?: string;
+  theme?: "light" | "dark";
 };
 
 export declare function searchmate({ appId, urlPrefix }: SearchMateProps): void;

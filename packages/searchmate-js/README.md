@@ -1,18 +1,35 @@
+This package is a vanilla javascript client for [Searchmate](https://searchmate.app).
+
+## Quick start
+
+```bash
+npm i searchamte-js
+```
+
+Once is installed you can use the package now you can import it in your code like this
+
+```ts
+import { searchmate } from "searchamte-js";
+import "searchamte-js/css";
+import "./style.css";
+
+const appId = import.meta.env.VITE_PUBLIC_APP_ID;
+const button = document.querySelector("#my-button");
+
+button.addEventListener("click", () => {
+  searchmate({
+    appId: appId,
+    onClose: () => {
+      console.log("Closed");
+    },
+  });
+});
+```
+
+Add the needed css variables to your `styles.css`
+
+```css
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  --color-bg: #fff;
-  --color-text: #000;
-
   --searchmate-input-text-color: #3f3f46;
   --searchmate-input-color: #f1f5f9;
   --searchmate-result-color: #64748b;
@@ -26,13 +43,15 @@
   --searchmate-link-colors: #ef4444;
   --searchmate-path-body-color: #737373;
 }
+```
 
-:root.theme-dark {
+### Dark mode
+
+To add dark mode append the dark variables to your `styles.css`
+
+```css
+:root.your-theme-dark-class {
   color-scheme: dark;
-  --color-bg: #000;
-  --color-text: #fff;
-
-
   --searchmate-input-text-color: #f4f4f5;
   --searchmate-input-color: #27272a;
   --searchmate-result-color: #fafafa;
@@ -46,8 +65,4 @@
   --searchmate-link-colors: #ef4444;
   --searchmate-path-body-color: #a3a3a3;
 }
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
+```

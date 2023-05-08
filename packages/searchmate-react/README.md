@@ -1,18 +1,35 @@
+This package is a React client for [Searchmate](https://searchmate.app).
+
+## Quick start
+
+```bash
+npm i searchamte-react
+```
+
+Once is installed you can use the package now you can import it in your code like this
+
+```tsx
+import "./App.css";
+import { Search, useSearch } from "searchmate-react";
+import "searchmate-react/css";
+
+function App() {
+  const { isOpen, onOpen, onClose } = useSearch();
+  return (
+    <>
+      <button onClick={onOpen}>Open search</button>
+      <Search appId={YOUR_APP_ID} isOpen={isOpen} onClose={onClose} />
+    </>
+  );
+}
+
+export default App;
+```
+
+Add the needed css variables to your `App.css`
+
+```css
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  --color-bg: #fff;
-  --color-text: #000;
-
   --searchmate-input-text-color: #3f3f46;
   --searchmate-input-color: #f1f5f9;
   --searchmate-result-color: #64748b;
@@ -26,13 +43,15 @@
   --searchmate-link-colors: #ef4444;
   --searchmate-path-body-color: #737373;
 }
+```
 
-:root.theme-dark {
+### Dark mode
+
+To add dark mode append the dark variables to your `App.css`
+
+```css
+:root.your-theme-dark-class {
   color-scheme: dark;
-  --color-bg: #000;
-  --color-text: #fff;
-
-
   --searchmate-input-text-color: #f4f4f5;
   --searchmate-input-color: #27272a;
   --searchmate-result-color: #fafafa;
@@ -46,8 +65,4 @@
   --searchmate-link-colors: #ef4444;
   --searchmate-path-body-color: #a3a3a3;
 }
-
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-}
+```

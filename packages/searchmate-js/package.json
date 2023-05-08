@@ -1,11 +1,14 @@
 {
   "name": "searchmate-js",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "files": [
     "dist"
   ],
+  "repository": {
+    "url": "https://github.com/searchmate-app/searchmate-js"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/props.d.ts",
@@ -15,7 +18,7 @@
       "require": "./dist/index.js"
     },
     "./dist/index.js": "./dist/index.js",
-    "./styles": "./dist/style.css"
+    "./css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",

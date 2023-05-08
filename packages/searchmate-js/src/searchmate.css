@@ -1,25 +1,15 @@
 @import "markdown.css";
 
 #searchmate-docs-search {
-  --searchmate-padding-2: 4px;
-  --searchmate-padding-4: 8px;
-  --searchmate-padding-6: 14px;
-  --searchmate-padding-8: 32px;
-  --searchmate-padding-10: 48px;
-  --searchmate-padding-12: 64px;
-  --searchmate-container-radius: 7px;
-  --searchmate-input-radius: 3px;
-  --searchmate-input-text-color: #3f3f46;
-  --searchmate-input-color: #f1f5f9;
-  --searchmate-result-color: #64748b;
-  --searchmate-result-bg: #f8fafc;
-  --searchmate-input-font-size: 16px;
-  --searchmate-search-color: #fff;
-  --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-icon-color: #334155;
-  --searchmate-input-placeholder-color: #cbd5e1;
-  --searchmate-selected-bg: #fee2e260;
-  --searchmate-selected-border-color: #fecaca60;
+  --searchmate-padding-2: 0.25rem; /* 4px / 16px = 0.25rem */
+  --searchmate-padding-4: 0.5rem; /* 8px / 16px = 0.5rem */
+  --searchmate-padding-6: 0.875rem; /* 14px / 16px = 0.875rem */
+  --searchmate-padding-8: 2rem; /* 32px / 16px = 2rem */
+  --searchmate-padding-10: 3rem; /* 48px / 16px = 3rem */
+  --searchmate-padding-12: 4rem; /* 64px / 16px = 4rem */
+  --searchmate-container-radius: 0.4375rem; /* 7px / 16px = 0.4375rem */
+  --searchmate-input-radius: 0.1875rem; /* 3px / 16px = 0.1875rem */
+  --searchmate-input-font-size: 1rem; /* 16px / 16px = 1rem */
 
   & * {
     margin: 0;

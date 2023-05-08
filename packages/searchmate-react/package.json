@@ -1,11 +1,14 @@
 {
   "name": "searchmate-react",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "files": [
     "dist"
   ],
+  "repository": {
+    "url": "https://github.com/searchmate-app/searchmate-js"
+  },
   "main": "dist/searchmate-react.es.js",
   "module": "dist/searchmate-react.es.js",
   "types": "dist/types.d.ts",
@@ -15,7 +18,7 @@
       "require": "./dist/searchmate-react.es.js"
     },
     "./dist/index.js": "./dist/searchmate-react.es.js",
-    "./styles": "./dist/style.css"
+    "./css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
@@ -27,7 +30,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "searchmate-js": "workspace:^1.0.2"
+    "searchmate-js": "workspace:^1.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
