@@ -18,7 +18,7 @@
       "require": "./dist/searchmate-react.es.js"
     },
     "./dist/index.js": "./dist/searchmate-react.es.js",
-    "./styles": "./dist/style.css"
+    "./css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",

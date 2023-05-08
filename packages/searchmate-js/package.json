@@ -18,7 +18,7 @@
       "require": "./dist/index.js"
     },
     "./dist/index.js": "./dist/index.js",
-    "./styles": "./dist/style.css"
+    "./css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
