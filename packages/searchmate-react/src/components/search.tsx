@@ -1,7 +1,7 @@
 import { type SearchProps } from "./types";
 import { useEffect } from "react";
 import { searchmate } from "searchmate-js";
-import "searchmate-js/styles";
+import "searchmate-js/css";
 
 export function Search({ appId, isOpen, urlPrefix, onClose }: SearchProps) {
   useEffect(() => {

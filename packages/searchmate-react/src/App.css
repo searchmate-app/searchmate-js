@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+:root {
+  --searchmate-input-text-color: #3f3f46;
+  --searchmate-input-color: #f1f5f9;
+  --searchmate-result-color: #64748b;
+  --searchmate-result-bg: #f8fafc;
+  --searchmate-search-color: #fff;
+  --searchmate-container-color: rgba(15, 23, 42, 0.1);
+  --searchmate-search-icon-color: #334155;
+  --searchmate-input-placeholder-color: #cbd5e1;
+  --searchmate-selected-bg: #fee2e260;
+  --searchmate-selected-border-color: #fecaca60;
+  --searchmate-link-colors: #ef4444;
+  --searchmate-path-body-color: #737373;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

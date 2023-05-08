@@ -90,7 +90,7 @@ export function searchmate({
       e.preventDefault();
       const { end } = setSelectedIndex(
         selectedResultIndex + 1,
-        resultContainer
+        resultContainer,
       );
       if (!end) {
         removeSelectedIndex(selectedResultIndex, resultContainer);
@@ -109,7 +109,7 @@ export function searchmate({
     if (e.key === "Enter") {
       e.preventDefault();
       const selectedResult = resultContainer.querySelector(
-        `.${SELECTED_RESULT_CLASS}`
+        `.${SELECTED_RESULT_CLASS}`,
       ) as HTMLAnchorElement;
       if (selectedResult) {
         if (e.ctrlKey) {

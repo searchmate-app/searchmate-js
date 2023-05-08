@@ -27,7 +27,7 @@ function createHeadingElement(
   headingText: string,
   path: string,
   headingId: string,
-  prefix?: string
+  prefix?: string,
 ) {
   const anchor = createElement("a", [
     "searchmate-result-part",
@@ -64,7 +64,7 @@ export function getResultHTML(result: Result, prefix?: string) {
         data.content,
         result.path,
         data.headingId as string,
-        prefix
+        prefix,
       );
       parent.appendChild(heading);
     } else {
@@ -92,7 +92,7 @@ export function setSelectedIndex(index: number, resultContainer: HTMLElement) {
 
 export function removeSelectedIndex(
   index: number,
-  resultContainer: HTMLElement
+  resultContainer: HTMLElement,
 ) {
   const results = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
   const result = results[index];
@@ -102,7 +102,7 @@ export function removeSelectedIndex(
 
 export function setSelectedIndexWithMouse(
   event: MouseEvent,
-  resultContainer: HTMLElement
+  resultContainer: HTMLElement,
 ) {
   const mouseX = event.clientX;
   const mouseY = event.clientY;
@@ -134,7 +134,7 @@ export function setSelectedIndexWithMouse(
 
 export function setSelectedIndexWithTouch(
   event: TouchEvent,
-  resultContainer: HTMLElement
+  resultContainer: HTMLElement,
 ) {
   const touchX = event.touches[0].clientX;
   const touchY = event.touches[0].clientY;
