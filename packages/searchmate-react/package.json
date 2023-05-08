@@ -1,7 +1,7 @@
 {
   "name": "searchmate-react",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "files": [
     "dist"
@@ -27,7 +27,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "searchmate-js": "workspace:^1.0.1"
+    "searchmate-js": "workspace:^1.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

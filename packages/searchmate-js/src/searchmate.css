@@ -138,6 +138,7 @@
           text-align: left;
           font-weight: bold;
           border: 1px solid #ffffff00;
+          text-decoration: none;
 
           & .searchmate-result-path-header {
             display: flex;
