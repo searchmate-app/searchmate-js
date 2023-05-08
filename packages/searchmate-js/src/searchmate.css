@@ -1,6 +1,6 @@
 @import "markdown.css";
 
-.searchmate-container {
+#searchmate-docs-search {
   --searchmate-padding-2: 4px;
   --searchmate-padding-4: 8px;
   --searchmate-padding-6: 14px;
@@ -112,6 +112,7 @@
       /* padding-top: var(--searchmate-padding-4); */
       overflow-y: auto;
       max-height: 500px;
+      padding-bottom: var(--searchmate-padding-4);
 
       @media (min-width: 600px) {
         max-height: 400px;
@@ -127,10 +128,13 @@
 
         & .searchmate-result-path {
           display: flex;
-          flex-direction: column;          
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
           padding: var(--searchmate-padding-4);
           border-radius: var(--searchmate-input-radius);
           color: inherit;
+          width: 100%;
           text-align: left;
           font-weight: bold;
           border: 1px solid #ffffff00;
@@ -142,6 +146,7 @@
 
           & .searchmate-result-other {
             font-weight: normal;
+            width: 100%;
           }
 
           & .searchmate-path-icon {
@@ -163,12 +168,14 @@
           margin-bottom: var(--searchmate-padding-2);
           display: flex;
           align-items: center;
+          justify-content: flex-start;
           padding: var(--searchmate-padding-4);
           border-radius: var(--searchmate-input-radius);
           background-color: var(--searchmate-result-bg);
           margin-left: var(--searchmate-padding-8);
           position: relative;
           border: 1px solid #ffffff00;
+          text-decoration: none;
 
           & * {
             font-size: inherit;
@@ -190,7 +197,7 @@
         }
       }
 
-      & .searchmate-not-found{
+      & .searchmate-not-found {
         width: 100%;
         padding-top: var(--searchmate-padding-8);
         padding-bottom: var(--searchmate-padding-8);
@@ -200,13 +207,13 @@
         color: var(--searchmate-result-color);
         opacity: 0.5;
 
-        & .searchmate-x-notfound-circle{
+        & .searchmate-x-notfound-circle {
           width: 30px;
           height: 30px;
           margin-bottom: var(--searchmate-padding-4);
         }
 
-        & .searchmate-not-found-query{
+        & .searchmate-not-found-query {
           font-weight: bold;
         }
       }

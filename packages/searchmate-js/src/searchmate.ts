@@ -24,6 +24,7 @@ export function searchmate({
   const backgroundEl = createElementAndAppend("div", containerEl, [
     "searchmate-container",
   ]);
+  backgroundEl.id = "searchmate-docs-search";
 
   const searchContainer = createElementAndAppend("div", backgroundEl, [
     "searchmate-search-container",
