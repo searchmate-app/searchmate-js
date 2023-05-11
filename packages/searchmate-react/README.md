@@ -30,18 +30,24 @@ Add the needed css variables to your `App.css`
 
 ```css
 :root {
-  --searchmate-input-text-color: #3f3f46;
-  --searchmate-input-color: #f1f5f9;
-  --searchmate-result-color: #64748b;
-  --searchmate-result-bg: #f8fafc;
-  --searchmate-search-color: #fff;
+  /* Searchmate */
+  /* container */
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-icon-color: #334155;
-  --searchmate-input-placeholder-color: #cbd5e1;
-  --searchmate-selected-bg: #fee2e260;
-  --searchmate-selected-border-color: #fecaca60;
-  --searchmate-link-colors: #ef4444;
-  --searchmate-path-body-color: #737373;
+  --searchmate-search-color: #fff;
+
+  /* input */
+  --searchmate-input-bg-color: #fff;
+  --searchmate-input-border-color: #f4f4f5;
+  --searchmate-input-text-color: #3f3f46;
+  --searchmate-search-icon-color: #d4d4d8;
+  --searchmate-input-placeholder-color: #d4d4d8;
+
+  /* results */
+  --searchmate-result-text-color: #3f3f46;
+  --searchmate-result-bg: #fafafa;
+  --searchmate-selected-bg: #ef4444;
+  --searchmate-selected-border-color: #f87171;
+  --searchmate-selected-color: #f8fafc;
 }
 ```
 
@@ -52,17 +58,24 @@ To add dark mode append the dark variables to your `App.css`
 ```css
 :root.your-theme-dark-class {
   color-scheme: dark;
-  --searchmate-input-text-color: #f4f4f5;
-  --searchmate-input-color: #27272a;
-  --searchmate-result-color: #fafafa;
-  --searchmate-result-bg: #171717;
-  --searchmate-search-color: #27272a;
+
+  /* Searchmate */
+  /* container */
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-icon-color: #d4d4d8;
-  --searchmate-selected-bg: #fee2e220;
-  --searchmate-input-placeholder-color: #737373;
-  --searchmate-selected-border-color: #fecaca;
-  --searchmate-link-colors: #ef4444;
-  --searchmate-path-body-color: #a3a3a3;
+  --searchmate-search-color: #030712;
+
+  /* input */
+  --searchmate-input-border-color: #1f2937;
+  --searchmate-input-bg-color: #030712;
+  --searchmate-input-text-color: #d1d5db;
+  --searchmate-input-placeholder-color: #4b5563;
+  --searchmate-search-icon-color: #6b7280;
+
+  /* results */
+  --searchmate-result-bg: #111827;
+  --searchmate-result-text-color: #d1d5db;
+  --searchmate-selected-bg: #374151;
+  --searchmate-selected-border-color: #6b7280;
+  --searchmate-selected-color: #f8fafc;
 }
 ```
