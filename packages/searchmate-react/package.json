@@ -30,7 +30,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "searchmate-js": "workspace:^1.1.2"
+    "searchmate-js": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
