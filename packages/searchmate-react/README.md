@@ -72,10 +72,10 @@ To add dark mode append the dark variables to your `App.css`
   --searchmate-search-icon-color: #6b7280;
 
   /* results */
-  --searchmate-result-bg: #111827;
+  --searchmate-result-bg: #030712;
   --searchmate-result-text-color: #d1d5db;
-  --searchmate-selected-bg: #374151;
-  --searchmate-selected-border-color: #6b7280;
+  --searchmate-selected-bg: #ef4444;
+  --searchmate-selected-border-color: #ef4444;
   --searchmate-selected-color: #f8fafc;
 }
 ```
