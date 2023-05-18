@@ -152,7 +152,10 @@
         & .searchmate-result-path.searchmate-result-selected {
           background-color: var(--searchmate-selected-bg);
           border: 1px solid var(--searchmate-selected-border-color);
-          color: var(--searchmate-selected-color);
+
+          & * {
+            color: var(--searchmate-selected-color);
+          }
         }
 
         & .searchmate-result-heading {
