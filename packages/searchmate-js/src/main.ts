@@ -16,7 +16,7 @@ app?.appendChild(container);
 button.addEventListener("click", () => {
   searchmate({
     appId: appId,
-    urlPrefix: "https://tailwindcss.com/docs",
+    urlPrefix: "https://bun.sh/docs",
     onClose: () => {
       console.log("Closed mi pana");
     },

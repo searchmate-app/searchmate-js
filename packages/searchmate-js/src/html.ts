@@ -3,7 +3,7 @@ import {
   HEADING_TYPE,
   SELECTED_RESULT_CLASS,
 } from "./consts";
-import { hashIcon, pathIcon, xCircleIcon } from "./icons";
+import { hashIcon, logo, pathIcon, xCircleIcon } from "./icons";
 import { Result } from "./props";
 import { createElement } from "./util";
 
@@ -27,7 +27,7 @@ function createHeadingElement(
   headingText: string,
   path: string,
   headingId: string,
-  prefix?: string,
+  prefix?: string
 ) {
   const anchor = createElement("a", [
     "searchmate-result-part",
@@ -64,7 +64,7 @@ export function getResultHTML(result: Result, prefix?: string) {
         data.content,
         result.path,
         data.headingId as string,
-        prefix,
+        prefix
       );
       parent.appendChild(heading);
     } else {
@@ -92,7 +92,7 @@ export function setSelectedIndex(index: number, resultContainer: HTMLElement) {
 
 export function removeSelectedIndex(
   index: number,
-  resultContainer: HTMLElement,
+  resultContainer: HTMLElement
 ) {
   const results = resultContainer.querySelectorAll(CLICKABLE_RESULT_CLASS);
   const result = results[index];
@@ -102,7 +102,7 @@ export function removeSelectedIndex(
 
 export function setSelectedIndexWithMouse(
   event: MouseEvent,
-  resultContainer: HTMLElement,
+  resultContainer: HTMLElement
 ) {
   const mouseX = event.clientX;
   const mouseY = event.clientY;
@@ -134,7 +134,7 @@ export function setSelectedIndexWithMouse(
 
 export function setSelectedIndexWithTouch(
   event: TouchEvent,
-  resultContainer: HTMLElement,
+  resultContainer: HTMLElement
 ) {
   const touchX = event.touches[0].clientX;
   const touchY = event.touches[0].clientY;
@@ -174,4 +174,28 @@ export function getNotFoundHTML(query: string) {
   notFoundText.appendChild(querySpan);
   notFound.appendChild(notFoundText);
   return notFound;
+}
+
+export function initialResultsContent() {
+  const initialContent = createElement("div", ["searchmate-initial-content"]);
+  const initialContentText = createElement("p", [
+    "searchmate-initial-content-text",
+  ]);
+  
+  initialContentText.textContent = "What are you looking for?";
+  initialContent.appendChild(initialContentText);
+  return initialContent;
+}
+
+export function searchFooter() {
+  const footer = createElement("div", ["searchmate-footer"]);
+  const footerText = createElement("p", ["searchmate-footer-text"]);
+  footerText.textContent = "Powered by ";
+  const footerLink = createElement("a", ["searchmate-footer-link"]);
+  footerLink.textContent = "Search Mate";
+  footerLink.setAttribute("href", "https://searchmate.app");
+  footerText.appendChild(footerLink);
+  footer.appendChild(footerText);
+  footer.innerHTML += logo;
+  return footer;
 }

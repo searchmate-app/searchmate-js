@@ -184,7 +184,10 @@
             width: 16px;
             height: 16px;
             margin-right: var(--searchmate-padding-4);
-            color: inherit;
+            color: var(--searchmate-selected-color);
+            border-radius: 5px;
+            padding: 2px;
+            background-color: var(--searchmate-selected-bg);
           }
         }
 
@@ -192,6 +195,11 @@
           background-color: var(--searchmate-selected-bg);
           border: 1px solid var(--searchmate-selected-border-color);
           color: var(--searchmate-selected-color);
+
+          & .searchmate-hash-icon {
+            background-color: var(--searchmate-result-bg);
+            color: var(--searchmate-result-text-color);
+          }
         }
       }
 
@@ -214,6 +222,39 @@
         & .searchmate-not-found-query {
           font-weight: bold;
         }
+      }
+
+      & .searchmate-initial-content{
+        width: 100%;
+        padding-top: var(--searchmate-padding-8);
+        padding-bottom: var(--searchmate-padding-8);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--searchmate-result-text-color);
+        opacity: 0.5;
+      }
+    }
+
+    & .searchmate-footer {
+      width: 100%;
+      padding-bottom: var(--searchmate-padding-2);
+      padding-top: var(--searchmate-padding-2);
+      color: var(--searchmate-footer-text-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & a {
+        text-decoration: none;
+        font-weight: bold;
+        color: inherit;
+      }
+
+      & .searchmate-logo {
+        width: 24px;
+        height: 24px;
+        margin-left: var(--searchmate-padding-4);
       }
     }
   }
