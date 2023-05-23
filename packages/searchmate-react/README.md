@@ -30,7 +30,7 @@ Add the needed css variables to your `App.css`
 
 ```css
 :root {
-  /* Searchmate */
+/* Searchmate */
   /* container */
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
   --searchmate-search-color: #fff;
@@ -48,6 +48,9 @@ Add the needed css variables to your `App.css`
   --searchmate-selected-bg: #ef4444;
   --searchmate-selected-border-color: #f87171;
   --searchmate-selected-color: #f8fafc;
+
+  /* footer */
+  --searchmate-footer-text-color: #3f3f46;
 }
 ```
 
@@ -72,10 +75,13 @@ To add dark mode append the dark variables to your `App.css`
   --searchmate-search-icon-color: #6b7280;
 
   /* results */
-  --searchmate-result-bg: #030712;
+  --searchmate-result-bg: #0f172a;
   --searchmate-result-text-color: #d1d5db;
   --searchmate-selected-bg: #ef4444;
   --searchmate-selected-border-color: #ef4444;
   --searchmate-selected-color: #f8fafc;
+
+  /* footer */
+  --searchmate-footer-text-color: #d1d5db;
 }
 ```

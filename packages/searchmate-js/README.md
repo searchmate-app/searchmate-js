@@ -48,6 +48,9 @@ Add the needed css variables to your `styles.css`
   --searchmate-selected-bg: #ef4444;
   --searchmate-selected-border-color: #f87171;
   --searchmate-selected-color: #f8fafc;
+
+  /* footer */
+  --searchmate-footer-text-color: #3f3f46;
 }
 ```
 
@@ -71,10 +74,13 @@ To add dark mode append the dark variables to your `styles.css`
   --searchmate-search-icon-color: #6b7280;
 
   /* results */
-  --searchmate-result-bg: #030712;
+  --searchmate-result-bg: #0f172a;
   --searchmate-result-text-color: #d1d5db;
   --searchmate-selected-bg: #ef4444;
   --searchmate-selected-border-color: #ef4444;
   --searchmate-selected-color: #f8fafc;
+
+  /* footer */
+  --searchmate-footer-text-color: #d1d5db;
 }
 ```
