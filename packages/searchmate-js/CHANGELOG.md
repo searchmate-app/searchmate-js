@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 1.6.0
+
+### Minor Changes
+
+- 8377a78: Fix: wrong props
+
 ## 1.5.0
 
 ### Minor Changes

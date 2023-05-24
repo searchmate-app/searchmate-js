@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.6.0
+
+### Minor Changes
+
+- 8377a78: Fix: wrong props
+
+### Patch Changes
+
+- Updated dependencies [8377a78]
+  - searchmate-js@1.6.0
+
 ## 1.5.0
 
 ### Minor Changes
