@@ -21,7 +21,7 @@ export default function SearchComponent() {
 
   return (
     <>
-      <button type="button" className="search-input">
+      <button type="button" className="search-input" onClick={onOpen}>
         <svg width="24" height="24" fill="none">
           <path
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
