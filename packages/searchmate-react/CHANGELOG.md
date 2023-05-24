@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.5.0
+
+### Minor Changes
+
+- ff390c4: Fix: shortcuts conflict
+
+### Patch Changes
+
+- Updated dependencies [ff390c4]
+  - searchmate-js@1.5.0
+
 ## 1.4.0
 
 ### Minor Changes
