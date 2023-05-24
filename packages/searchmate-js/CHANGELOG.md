@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 1.5.0
+
+### Minor Changes
+
+- ff390c4: Fix: shortcuts conflict
+
 ## 1.4.0
 
 ### Minor Changes
