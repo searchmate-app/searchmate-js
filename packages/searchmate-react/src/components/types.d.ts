@@ -1,7 +1,10 @@
 import { type SearchMateProps } from "searchmate-js";
 
-export interface SearchProps extends SearchMateProps {
+export interface SearchProps {
   isOpen: boolean;
+  onClose: () => void;
+  urlPrefix?: string;
+  appId: string;
 }
 
 interface useSearchReturn {
