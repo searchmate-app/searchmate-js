@@ -5,9 +5,11 @@ export function useShortcut({
   callback,
   key,
   withCtrl = false,
+  isOpen,
 }: useShortcutProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (isOpen) return;
       if (event.key === key) {
         if (withCtrl) {
           event.preventDefault();
@@ -26,5 +28,5 @@ export function useShortcut({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [callback, key, withCtrl]);
+  }, [callback, key, withCtrl, isOpen]);
 }

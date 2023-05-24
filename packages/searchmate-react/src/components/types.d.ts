@@ -12,6 +12,7 @@ interface useSearchReturn {
 
 export interface useShortcutProps {
   key: string;
+  isOpen: boolean;
   withCtrl?: boolean;
   callback: () => void;
 }

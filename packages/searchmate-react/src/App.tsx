@@ -8,9 +8,11 @@ function App() {
     callback: onOpen,
     key: "k",
     withCtrl: true,
+    isOpen,
   });
   useShortcut({
     callback: onOpen,
+    isOpen,
     key: "/",
   });
 
