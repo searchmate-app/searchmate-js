@@ -3,7 +3,15 @@ title: "Astro"
 description: "Example for Astro"
 ---
 
-With astro you can use the [React Package](/en/react). But if you only want to use Astro, you can use the following code:
+With astro you can use the [React Package](/en/react). But if you only want to use Astro you can use the followin example
+
+## Installation
+
+```bash
+npm install searchmate-js
+```
+
+## Usage
 
 ```astro
 <script>

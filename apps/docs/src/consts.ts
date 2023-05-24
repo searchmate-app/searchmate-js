@@ -6,7 +6,7 @@ export const SITE = {
 
 export const OPEN_GRAPH = {
   image: {
-    src: "https://github.com/withastro/astro/blob/main/.github/assets/banner.png?raw=true",
+    src: "/default-og-image.png",
     alt: "Search Mate Logo Banner",
   },
 };
@@ -36,3 +36,5 @@ export const SIDEBAR: Sidebar = {
     ],
   },
 };
+
+export const SEARCHMATE_APP_ID = import.meta.env.PUBLIC_SEARCHMATE_APP_ID

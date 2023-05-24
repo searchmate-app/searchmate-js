@@ -1,7 +1,24 @@
 /** @jsxImportSource react */
 import "./Search.css";
+import { useSearch, Search, useShortcut } from "searchmate-react";
+import "searchmate-react/css";
+import { SEARCHMATE_APP_ID } from "../../consts";
 
-export default function Search() {
+export default function SearchComponent() {
+  const { isOpen, onClose, onOpen } = useSearch();
+  useShortcut({
+    callback: onOpen,
+    isOpen,
+    key: "/",
+  });
+
+  useShortcut({
+    callback: onOpen,
+    isOpen,
+    key: "k",
+    withCtrl: true,
+  });
+
   return (
     <>
       <button type="button" className="search-input">
@@ -25,6 +42,7 @@ export default function Search() {
           <span className="sr-only"> to search</span>
         </span>
       </button>
+      <Search appId={SEARCHMATE_APP_ID} isOpen={isOpen} onClose={onClose} />
     </>
   );
 }
