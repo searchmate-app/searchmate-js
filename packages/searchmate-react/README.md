@@ -17,11 +17,13 @@ function App() {
   const { isOpen, onOpen, onClose } = useSearch();
   useShortcut({
     callback: onOpen,
+    isOpen,
     key: "k",
     withCtrl: true,
   });
   useShortcut({
     callback: onOpen,
+    isOpen,
     key: "/",
   });
   

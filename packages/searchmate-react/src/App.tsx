@@ -6,9 +6,9 @@ function App() {
   const { isOpen, onOpen, onClose } = useSearch();
   useShortcut({
     callback: onOpen,
+    isOpen,
     key: "k",
     withCtrl: true,
-    isOpen,
   });
   useShortcut({
     callback: onOpen,
