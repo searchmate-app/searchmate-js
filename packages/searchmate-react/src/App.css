@@ -6,18 +6,27 @@
 }
 
 :root {
-  --searchmate-input-text-color: #3f3f46;
-  --searchmate-input-color: #f1f5f9;
-  --searchmate-result-color: #64748b;
-  --searchmate-result-bg: #f8fafc;
-  --searchmate-search-color: #fff;
+  /* Searchmate */
+  /* container */
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-icon-color: #334155;
-  --searchmate-input-placeholder-color: #cbd5e1;
-  --searchmate-selected-bg: #fee2e260;
-  --searchmate-selected-border-color: #fecaca60;
-  --searchmate-link-colors: #ef4444;
-  --searchmate-path-body-color: #737373;
+  --searchmate-search-color: #fff;
+
+  /* input */
+  --searchmate-input-bg-color: #fff;
+  --searchmate-input-border-color: #f4f4f5;
+  --searchmate-input-text-color: #3f3f46;
+  --searchmate-search-icon-color: #d4d4d8;
+  --searchmate-input-placeholder-color: #d4d4d8;
+
+  /* results */
+  --searchmate-result-text-color: #3f3f46;
+  --searchmate-result-bg: #fafafa;
+  --searchmate-selected-bg: #ef4444;
+  --searchmate-selected-border-color: #f87171;
+  --searchmate-selected-color: #f8fafc;
+
+  /* footer */
+  --searchmate-footer-text-color: #3f3f46;
 }
 
 .logo {

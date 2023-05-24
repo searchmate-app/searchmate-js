@@ -10,5 +10,12 @@ interface useSearchReturn {
   onClose: () => void;
 }
 
+export interface useShortcutProps {
+  key: string;
+  withCtrl?: boolean;
+  callback: () => void;
+}
+
 export declare const Search: React.FC<SearchProps>;
 export declare const useSearch: () => useSearchReturn;
+export declare const useShortcut: (props: useShortcutProps) => void;

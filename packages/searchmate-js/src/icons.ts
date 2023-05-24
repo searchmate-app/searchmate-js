@@ -29,4 +29,4 @@ export const logo = `<svg width="40" height="40" viewBox="0 0 40 40" fill="none"
 </clipPath>
 </defs>
 </svg>
-`
+`;

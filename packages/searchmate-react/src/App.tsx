@@ -1,9 +1,18 @@
 import "./App.css";
-import { Search, useSearch } from "./components";
+import { Search, useSearch, useShortcut } from "./components";
 import { APP_ID } from "./consts";
 
 function App() {
   const { isOpen, onOpen, onClose } = useSearch();
+  useShortcut({
+    callback: onOpen,
+    key: "k",
+    withCtrl: true,
+  });
+  useShortcut({
+    callback: onOpen,
+    key: "/",
+  });
 
   return (
     <>

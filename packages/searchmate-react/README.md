@@ -15,6 +15,16 @@ import "searchmate-react/css";
 
 function App() {
   const { isOpen, onOpen, onClose } = useSearch();
+  useShortcut({
+    callback: onOpen,
+    key: "k",
+    withCtrl: true,
+  });
+  useShortcut({
+    callback: onOpen,
+    key: "/",
+  });
+  
   return (
     <>
       <button onClick={onOpen}>Open search</button>
@@ -30,7 +40,7 @@ Add the needed css variables to your `App.css`
 
 ```css
 :root {
-/* Searchmate */
+  /* Searchmate */
   /* container */
   --searchmate-container-color: rgba(15, 23, 42, 0.1);
   --searchmate-search-color: #fff;
@@ -85,3 +95,4 @@ To add dark mode append the dark variables to your `App.css`
   --searchmate-footer-text-color: #d1d5db;
 }
 ```
+
