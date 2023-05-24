@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.4.0
+
+### Minor Changes
+
+- 225fbe5: Added shortcuts to react package
+
+### Patch Changes
+
+- Updated dependencies [225fbe5]
+  - searchmate-js@1.4.0
+
 ## 1.3.0
 
 ### Minor Changes
