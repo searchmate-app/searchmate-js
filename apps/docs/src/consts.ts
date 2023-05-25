@@ -28,7 +28,7 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
   en: {
-    "General": [
+    General: [
       { text: "Introduction", link: "en/introduction" },
       { text: "Vanilla JS", link: "en/vanilla-js" },
       { text: "React", link: "en/react" },
@@ -37,4 +37,4 @@ export const SIDEBAR: Sidebar = {
   },
 };
 
-export const SEARCHMATE_APP_ID = import.meta.env.PUBLIC_SEARCHMATE_APP_ID
+export const SEARCHMATE_APP_ID = import.meta.env.PUBLIC_SEARCHMATE_APP_ID;

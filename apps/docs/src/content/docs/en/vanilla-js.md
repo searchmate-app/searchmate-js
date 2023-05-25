@@ -93,3 +93,13 @@ To add dark mode append the dark variables to your `styles.css`
   --searchmate-footer-text-color: #d1d5db;
 }
 ```
+
+## Props
+
+Here is the list of props you can pass to the `searchmate` function.
+
+| Name      | Type       | Description                                | Optional |
+| --------- | ---------- | ------------------------------------------ | -------- |
+| appId     | `string`   | Your Searchmate app id                     | `false`  |
+| onClose   | `function` | Callback function when the modal is closed | `true`   |
+| urlPrefix | `string`   | Url prefix to use for the search results   | `true`   |

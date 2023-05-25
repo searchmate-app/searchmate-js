@@ -106,3 +106,25 @@ To add dark mode append the dark variables to your `App.css`
   --searchmate-footer-text-color: #d1d5db;
 }
 ```
+
+## Props
+
+Here you can find the props for the components and hooks.
+
+### Search
+
+| Name      | Type       | Description                                | Optional |
+| --------- | ---------- | ------------------------------------------ | -------- |
+| isOpen    | boolean    | If the search is open                      | false    |
+| onClose   | () => void | Callback to call when the search is closed | false    |
+| urlPrefix | string     | Url prefix to use for the links            | true     |
+| appId     | string     | App id to use for the search               | false    |
+
+### useShortcut
+
+| Name     | Type       | Description                                     | Optional |
+| -------- | ---------- | ----------------------------------------------- | -------- |
+| key      | string     | Key to trigger the shortcut                     | false    |
+| isOpen   | boolean    | If the search is open                           | false    |
+| withCtrl | boolean    | If the shortcut needs to be pressed with ctrl   | true     |
+| callback | () => void | Callback to call when the shortcut is triggered | false    |
