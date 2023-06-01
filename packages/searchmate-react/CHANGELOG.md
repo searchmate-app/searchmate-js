@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.7.0
+
+### Minor Changes
+
+- 008b26b: Fix: styles and add tweak bar
+
+### Patch Changes
+
+- Updated dependencies [008b26b]
+  - searchmate-js@1.7.0
+
 ## 1.6.0
 
 ### Minor Changes
