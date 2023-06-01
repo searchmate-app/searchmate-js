@@ -3,13 +3,13 @@ This package is a vanilla javascript client for [Searchmate](https://searchmate.
 ## Quick start
 
 ```bash
-npm i searchamte-js
+npm i searchmate-js
 ```
 
 Once is installed you can use the package now you can import it in your code like this
 
 ```ts
-import { searchmate } from "searchamte-js";
+import { searchmate } from "searchmate-js";
 import "searchamte-js/css";
 import "./style.css";
 

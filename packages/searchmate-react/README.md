@@ -3,7 +3,7 @@ This package is a React client for [Searchmate](https://searchmate.app).
 ## Quick start
 
 ```bash
-npm i searchamte-react
+npm i searchmate-react
 ```
 
 Once is installed you can use the package now you can import it in your code like this
