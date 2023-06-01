@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.8.0
+
+### Minor Changes
+
+- b10cbec: Fix: docs typo
+
+### Patch Changes
+
+- Updated dependencies [b10cbec]
+  - searchmate-js@1.8.0
+
 ## 1.7.0
 
 ### Minor Changes
