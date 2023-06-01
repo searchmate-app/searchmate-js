@@ -114,7 +114,20 @@
         padding-right: var(--searchmate-padding-2);
         color: var(--searchmate-result-text-color);
         position: relative;
-        margin-top: var(--searchmate-padding-4);
+        margin-top: var(--searchmate-padding-2);
+        z-index: 1;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 20px;
+          width: 2px;
+          height: 100%;
+          background-color: var(--searchmate-result-bg);
+          z-index: -1;
+        }
 
         & .searchmate-result-path {
           display: flex;
