@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 1.8.0
+
+### Minor Changes
+
+- b10cbec: Fix: docs typo
+
 ## 1.7.0
 
 ### Minor Changes
