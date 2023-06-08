@@ -28,5 +28,5 @@ export function useShortcut({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [callback, key, withCtrl, isOpen]);
+  }, [isOpen]);
 }
