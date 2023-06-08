@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 1.9.0
+
+### Minor Changes
+
+- e992cc5: Fix: listener duplicated
+
 ## 1.8.0
 
 ### Minor Changes

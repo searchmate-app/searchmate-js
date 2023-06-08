@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [e992cc5]
+  - searchmate-react@1.9.0
+
 ## 0.0.4
 
 ### Patch Changes
