@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 1.9.0
+
+### Minor Changes
+
+- e992cc5: Fix: listener duplicated
+
+### Patch Changes
+
+- Updated dependencies [e992cc5]
+  - searchmate-js@1.9.0
+
 ## 1.8.0
 
 ### Minor Changes
