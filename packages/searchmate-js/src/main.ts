@@ -18,7 +18,10 @@ button.addEventListener("click", () => {
     appId: appId,
     urlPrefix: "https://bun.sh/docs",
     onClose: () => {
-      console.log("Closed mi pana");
+      console.log("Closed");
+    },
+    overrideNavigateToResult(path, withCtrl) {
+      console.log(path, withCtrl);
     },
   });
 });

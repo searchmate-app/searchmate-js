@@ -19,6 +19,7 @@ export function searchmate({
   appId,
   urlPrefix = undefined,
   onClose = undefined,
+  overrideNavigateToResult = undefined,
 }: SearchMateProps) {
   const foundResults: Result[] = [];
   const containerEl = document.body;
@@ -87,6 +88,15 @@ export function searchmate({
           resultContainer.appendChild(resultEl);
         });
         setSelectedIndex(selectedResultIndex, resultContainer);
+
+        if (overrideNavigateToResult) {
+          resultContainer.querySelectorAll("a").forEach((a) => {
+            a.addEventListener("click", (e) => {
+              e.preventDefault();
+              overrideNavigateToResult(a.href, e.ctrlKey);
+            });
+          });
+        }
       })
       .catch((_e) => {});
   }
@@ -125,7 +135,10 @@ export function searchmate({
       const selectedResult = resultContainer.querySelector(
         `.${SELECTED_RESULT_CLASS}`
       ) as HTMLAnchorElement;
-      if (selectedResult) {
+      if (!selectedResult) return;
+      if (overrideNavigateToResult) {
+        overrideNavigateToResult(selectedResult.href, e.ctrlKey);
+      } else {
         if (e.ctrlKey) {
           window.open(selectedResult.href, "_blank");
           return;

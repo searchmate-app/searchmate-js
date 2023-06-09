@@ -26,6 +26,9 @@ function App() {
         isOpen={isOpen}
         onClose={onClose}
         urlPrefix="https://tailwindcss.com/docs"
+        overrideNavigateToResult={(result, withCtrl) => {
+          console.log(result, withCtrl);
+        }}
       />
     </>
   );

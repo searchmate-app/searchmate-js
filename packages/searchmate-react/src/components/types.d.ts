@@ -5,6 +5,7 @@ export interface SearchProps {
   onClose: () => void;
   urlPrefix?: string;
   appId: string;
+  overrideNavigateToResult?: (url: string, withCtrl: boolean) => void;
 }
 
 interface useSearchReturn {
