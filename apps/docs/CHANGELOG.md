@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [4c94423]
+  - searchmate-react@2.0.0
+
 ## 0.0.5
 
 ### Patch Changes
