@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 2.0.0
+
+### Major Changes
+
+- 4c94423: Feature: override default navigation
+
 ## 1.9.0
 
 ### Minor Changes

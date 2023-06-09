@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 2.0.0
+
+### Major Changes
+
+- 4c94423: Feature: override default navigation
+
+### Patch Changes
+
+- Updated dependencies [4c94423]
+  - searchmate-js@2.0.0
+
 ## 1.9.0
 
 ### Minor Changes
