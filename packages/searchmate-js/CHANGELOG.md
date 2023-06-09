@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 2.1.0
+
+### Minor Changes
+
+- 5f95264: Fix: close when navigate to result
+
 ## 2.0.0
 
 ### Major Changes
