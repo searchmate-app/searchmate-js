@@ -88,15 +88,24 @@ export function searchmate({
           resultContainer.appendChild(resultEl);
         });
         setSelectedIndex(selectedResultIndex, resultContainer);
-
-        if (overrideNavigateToResult) {
-          resultContainer.querySelectorAll("a").forEach((a) => {
-            a.addEventListener("click", (e) => {
-              e.preventDefault();
+        resultContainer.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (overrideNavigateToResult) {
               overrideNavigateToResult(a.href, e.ctrlKey);
-            });
+              close();
+            } else {
+              if (e.ctrlKey) {
+                window.open(a.href, "_blank");
+                close();
+                return;
+              }
+              // navigate to the result
+              location.href = a.href;
+              close();
+            }
           });
-        }
+        });
       })
       .catch((_e) => {});
   }
@@ -138,12 +147,15 @@ export function searchmate({
       if (!selectedResult) return;
       if (overrideNavigateToResult) {
         overrideNavigateToResult(selectedResult.href, e.ctrlKey);
+        close();
       } else {
         if (e.ctrlKey) {
           window.open(selectedResult.href, "_blank");
+          close();
           return;
         }
         selectedResult.click();
+        close();
       }
     }
   }

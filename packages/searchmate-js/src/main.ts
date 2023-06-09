@@ -20,9 +20,9 @@ button.addEventListener("click", () => {
     onClose: () => {
       console.log("Closed");
     },
-    overrideNavigateToResult(path, withCtrl) {
-      console.log(path, withCtrl);
-    },
+    // overrideNavigateToResult(path, withCtrl) {
+    //   console.log(path, withCtrl);
+    // },
   });
 });
 
