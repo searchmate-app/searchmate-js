@@ -70,6 +70,21 @@ npm install searchmate-js
 
 ```
 
+## Overriding the default navigation
+
+You can override the default navigation by passing a function to the `overrideNavigateToResult` prop.
+
+```js
+searchmate({
+    overrideNavigateToResult(path, withCtrl) {
+      // your custom navigation logic
+      console.log(path, withCtrl);
+    },
+  });
+/>
+```
+
+
 ## Props
 
 Here is the list of props you can pass to the `searchmate` function.
@@ -79,3 +94,4 @@ Here is the list of props you can pass to the `searchmate` function.
 | appId     | `string`   | Your Searchmate app id                     | `false`  |
 | onClose   | `function` | Callback function when the modal is closed | `true`   |
 | urlPrefix | `string`   | Url prefix to use for the search results   | `true`   |
+| overrideNavigateToResult | (path: string, withCtrl: boolean) => void | Override the navigate to result function | `true`  |

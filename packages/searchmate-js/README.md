@@ -84,3 +84,17 @@ To add dark mode append the dark variables to your `styles.css`
   --searchmate-footer-text-color: #d1d5db;
 }
 ```
+
+### Overriding the default navigation
+
+You can override the default navigation by passing a function to the `overrideNavigateToResult` prop.
+
+```js
+searchmate({
+    overrideNavigateToResult(path, withCtrl) {
+      // your custom navigation logic
+      console.log(path, withCtrl);
+    },
+  });
+/>
+```

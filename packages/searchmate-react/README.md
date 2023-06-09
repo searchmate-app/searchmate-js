@@ -26,7 +26,7 @@ function App() {
     isOpen,
     key: "/",
   });
-  
+
   return (
     <>
       <button onClick={onOpen}>Open search</button>
@@ -98,3 +98,15 @@ To add dark mode append the dark variables to your `App.css`
 }
 ```
 
+### Overriding default navigation
+
+You can override the default navigation by passing a function to the `overrideNavigateToResult` prop.
+
+```tsx
+<Search
+  overrideNavigateToResult={(path, withCtrl) => {
+    // your custom navigation logic
+    console.log(path, withCtrl);
+  }}
+/>
+```

@@ -107,6 +107,19 @@ To add dark mode append the dark variables to your `App.css`
 }
 ```
 
+## Overriding default navigation
+
+You can override the default navigation by passing a function to the `overrideNavigateToResult` prop.
+
+```tsx
+<Search
+  overrideNavigateToResult={(path, withCtrl) => {
+    // your custom navigation logic
+    console.log(path, withCtrl);
+  }}
+/>
+```
+
 ## Props
 
 Here you can find the props for the components and hooks.
@@ -119,6 +132,7 @@ Here you can find the props for the components and hooks.
 | onClose   | () => void | Callback to call when the search is closed | false    |
 | urlPrefix | string     | Url prefix to use for the links            | true     |
 | appId     | string     | App id to use for the search               | false    |
+| overrideNavigateToResult | (path: string, withCtrl: boolean) => void | Override the default navigation | true |
 
 ### useShortcut
 
