@@ -23,6 +23,12 @@ export function searchmate({
   const foundResults: Result[] = [];
   const containerEl = document.body;
 
+  // comprobe if the container is already there and remove it
+  const oldContainer = containerEl.querySelector("#searchmate-docs-search");
+  if (oldContainer) {
+    return;
+  }
+
   const backgroundEl = createElementAndAppend("div", containerEl, [
     "searchmate-container",
   ]);
@@ -98,7 +104,7 @@ export function searchmate({
       e.preventDefault();
       const { end } = setSelectedIndex(
         selectedResultIndex + 1,
-        resultContainer,
+        resultContainer
       );
       if (!end) {
         removeSelectedIndex(selectedResultIndex, resultContainer);
@@ -117,7 +123,7 @@ export function searchmate({
     if (e.key === "Enter") {
       e.preventDefault();
       const selectedResult = resultContainer.querySelector(
-        `.${SELECTED_RESULT_CLASS}`,
+        `.${SELECTED_RESULT_CLASS}`
       ) as HTMLAnchorElement;
       if (selectedResult) {
         if (e.ctrlKey) {
@@ -166,12 +172,15 @@ export function searchmate({
     if (onClose) onClose();
   }
 
-  // add event listener for escape
-  searchContainer.addEventListener("keydown", (e) => {
+  const handleEscape = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       close();
+      document.removeEventListener("keydown", handleEscape);
     }
-  });
+  };
+
+  // add event listener for escape
+  document.addEventListener("keydown", handleEscape);
 
   backgroundEl.addEventListener("click", (e) => {
     if (e.target === backgroundEl) {
