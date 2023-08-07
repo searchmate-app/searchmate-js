@@ -1,5 +1,16 @@
 # searchmate-react
 
+## 2.2.0
+
+### Minor Changes
+
+- c5f272b: Fix: focus index
+
+### Patch Changes
+
+- Updated dependencies [c5f272b]
+  - searchmate-js@2.2.0
+
 ## 2.1.0
 
 ### Minor Changes
