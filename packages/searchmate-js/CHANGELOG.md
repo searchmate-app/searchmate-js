@@ -1,5 +1,11 @@
 # searchmate-js
 
+## 2.2.0
+
+### Minor Changes
+
+- c5f272b: Fix: focus index
+
 ## 2.1.0
 
 ### Minor Changes
