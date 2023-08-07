@@ -1,4 +1,3 @@
-import A11yDialog from "a11y-dialog";
 import { QUERY_URL, SELECTED_RESULT_CLASS } from "./consts";
 import {
   getNotFoundHTML,
@@ -14,6 +13,7 @@ import { searchSvgIcon } from "./icons";
 import { Result, SearchMateProps } from "./props";
 import "./searchmate.css";
 import { createElementAndAppend } from "./util";
+import A11yDialog from "a11y-dialog";
 import debounce from "just-debounce-it";
 
 export function searchmate({
