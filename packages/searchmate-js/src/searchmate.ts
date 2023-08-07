@@ -1,3 +1,4 @@
+import A11yDialog from "a11y-dialog";
 import { QUERY_URL, SELECTED_RESULT_CLASS } from "./consts";
 import {
   getNotFoundHTML,
@@ -34,6 +35,8 @@ export function searchmate({
     "searchmate-container",
   ]);
   backgroundEl.id = "searchmate-docs-search";
+  const dialog = new A11yDialog(backgroundEl)
+  dialog.show()
 
   const searchContainer = createElementAndAppend("div", backgroundEl, [
     "searchmate-search-container",
@@ -107,7 +110,7 @@ export function searchmate({
           });
         });
       })
-      .catch((_e) => {});
+      .catch((_e) => { });
   }
 
   const debouncedFetchResults = debounce(fetchResults, 300);
@@ -194,6 +197,7 @@ export function searchmate({
       resultContainer.removeEventListener("touchstart", handleTouchStart);
     }
     backgroundEl.remove();
+    dialog.destroy()
     if (onClose) onClose();
   }
 

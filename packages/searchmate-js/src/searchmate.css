@@ -129,6 +129,11 @@
           z-index: -1;
         }
 
+        & .searchmate-result-part:focus-visible {
+          outline: 2px solid var(--searchmate-selected-bg);
+          outline-offset: 0px;
+        }
+
         & .searchmate-result-path {
           display: flex;
           flex-direction: column;

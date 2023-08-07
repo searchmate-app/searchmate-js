@@ -29,12 +29,13 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
+    "rome": "12.0.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
-    "vite-plugin-dts": "^2.3.0",
-    "rome": "12.0.0"
+    "vite-plugin-dts": "^2.3.0"
   },
   "dependencies": {
+    "a11y-dialog": "^8.0.0",
     "just-debounce-it": "^3.2.0",
     "postcss-nesting": "^11.2.2"
   }
