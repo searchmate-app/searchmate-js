@@ -1,34 +1,16 @@
 import {
+  CrossCircledIcon,
   FrameIcon,
+  MagnifyingGlassIcon,
 } from "@radix-ui/react-icons";
 import { Command } from "cmdk";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useSearch } from "./use-search";
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from "@radix-ui/react-dialog";
+import { ResultType, SearchItemProps, SearchMateProps } from "./types";
 
 
-interface Props {
-  appId: string;
-}
-
-type ResultType = {
-  path: string;
-  content: {
-    type: string;
-    content: string;
-    headingId?: string;
-    depth?: string;
-    tempId: string;
-  }[];
-  tempId: string;
-};
-
-interface SearchItemProps {
-  data: ResultType;
-  query: string;
-}
-
-function SearchItem({ data, query }: SearchItemProps) {
+function SearchItem({ data, query, onSelect }: SearchItemProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,6 +35,7 @@ function SearchItem({ data, query }: SearchItemProps) {
         ref={containerRef}
         value={data.tempId}
         key={data.tempId}
+        onSelect={() => onSelect(`${data.path}`)}
       >
         <p className="search-result-text">{data.path}</p>
       </Command.Item>
@@ -71,6 +54,7 @@ function SearchItem({ data, query }: SearchItemProps) {
               // className="relative flex cursor-default select-none items-center rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 px-2 py-1.5 ml-5"
               value={itemContent.tempId}
               key={itemContent.tempId}
+              onSelect={() => onSelect(`${data.path}#${itemContent.headingId}`)}
             >
               <FrameIcon />{" "}
               <span className="search-result-text">{itemContent.content}</span>
@@ -83,6 +67,7 @@ function SearchItem({ data, query }: SearchItemProps) {
               // className="relative flex cursor-default select-none items-center rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 px-2 py-1.5"
               value={itemContent.tempId}
               key={itemContent.tempId}
+              onSelect={() => onSelect(`${data.path}`)}
             >
               <span className="search-result-text">{itemContent.content}</span>
             </Command.Item>
@@ -93,30 +78,14 @@ function SearchItem({ data, query }: SearchItemProps) {
   );
 }
 
-export function Search({ appId }: Props) {
-  const [open, setOpen] = useState(false)
+export function Search({ appId, isOpen, onOpenChange, onResultSelect }: SearchMateProps) {
+  const { onSearchChange, query, results, queryNotFound, emptyQuery } = useSearch({ appId });
 
-  // Toggle the menu when ⌘K is pressed
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open) => !open)
-      }
-    }
 
-    document.addEventListener('keydown', down)
-    return () => document.removeEventListener('keydown', down)
-  }, [])
-
-  const { onSearchChange, query, results } = useSearch({ appId });
-
-  // const notFound = results.length <= 0 && query.length > 0;
-  // const noQuery = results.length <= 0 && query.length <= 0;
 
   return (
-    <Dialog open={open}
-      onOpenChange={setOpen}>
+    <Dialog open={isOpen}
+      onOpenChange={onOpenChange}>
       <DialogPortal>
         <DialogOverlay className="sm-dialog-overlay" />
         <DialogContent className="sm-dialog-content" >
@@ -127,21 +96,21 @@ export function Search({ appId }: Props) {
             loop
           >
             <Command.Input placeholder="react" onValueChange={onSearchChange} value={query} />
-            <Command.List className="p-4 min-h-[300px] max-h-[300px] overflow-y-auto overflow-x-hidden">
-              {/* {notFound && (
-                                <Command.Empty className="py-6 text-center text-muted-foreground text-sm flex flex-col items-center">
-                                    <CrossCircledIcon className="w-6 h-6 mb-2" />
-                                    <p>No results found.</p>
-                                </Command.Empty>
-                            )}
-                            {noQuery && (
-                                <Command.Empty className="py-6 text-center text-muted-foreground text-sm flex flex-col items-center">
-                                    <MagnifyingGlassIcon className="w-6 h-6 mb-2" />
-                                    Type your query...
-                                </Command.Empty>
-                            )} */}
+            <Command.List>
+              {queryNotFound && (
+                <Command.Empty className="py-6 text-center text-muted-foreground text-sm flex flex-col items-center">
+                  <CrossCircledIcon />
+                  <p>No results found.</p>
+                </Command.Empty>
+              )}
+              {emptyQuery && (
+                <Command.Empty className="py-6 text-center text-muted-foreground text-sm flex flex-col items-center">
+                  <MagnifyingGlassIcon />
+                  Type your query...
+                </Command.Empty>
+              )}
               {results.map((result: ResultType) => (
-                <SearchItem query={query} key={result.tempId} data={result} />
+                <SearchItem onSelect={onResultSelect} query={query} key={result.tempId} data={result} />
               ))}
             </Command.List>
             <div cmdk-footer="">

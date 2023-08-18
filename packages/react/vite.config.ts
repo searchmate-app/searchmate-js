@@ -7,6 +7,8 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [react(), dts({
     copyDtsFiles: true,
+    include: ["src/components/types.d.ts"],
+    insertTypesEntry: true,
   }),],
   css: {
     postcss: {

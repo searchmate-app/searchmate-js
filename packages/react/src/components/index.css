@@ -36,13 +36,6 @@
   --sm-accent: 262.1 83.3% 57.8%;
 }
 
-* {
-  @apply border-border;
-}
-body {
-  @apply bg-background text-foreground;
-}
-
 .sm-dialog-overlay {
   position: fixed;
   top: 0;
@@ -109,6 +102,7 @@ body {
     overflow: hidden;
     padding: 0;
     box-shadow: var(--dialog-shadow);
+    border: 1px solid hsl(var(--sm-border));
   }
 
   & [cmdk-input] {
@@ -184,22 +178,32 @@ body {
   }
 
   & [cmdk-footer] {
-      display: flex;
-      height: 40px;
-      padding: 0px 16px;
-      align-items: center;
-      width: 100%;
-      background: hsl(var(--sm-background));
-      bottom: 0;
-      border-top: 1px solid hsl(var(--sm-border));
-      border-radius: 0 0 var(--sm-radius) var(--sm-radius);
+    display: flex;
+    height: 40px;
+    padding: 0px 16px;
+    align-items: center;
+    width: 100%;
+    background: hsl(var(--sm-background));
+    bottom: 0;
+    border-top: 1px solid hsl(var(--sm-border));
+    border-radius: 0 0 var(--sm-radius) var(--sm-radius);
 
-      & span {
-    color: hsl(var(--sm-foreground));
+    & span {
+      color: hsl(var(--sm-foreground));
 
       & kbd {
         margin-left: 4px;
       }
     }
-    }
- }
+  }
+
+  & [cmdk-empty] {
+    font-size: 14px;
+    padding: 32px;
+    white-space: pre-wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: hsl(var(--sm-muted-foreground));
+  }
+}

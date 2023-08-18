@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDebounce } from "./use-debounce";
 import { searchDocs } from "../service";
+import { UseSearchProps } from "./types";
 
-interface Props {
-    appId: string;
-}
 
-export const useSearch = ({ appId }: Props) => {
+export const useSearch = ({ appId }: UseSearchProps) => {
     const [query, setQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [results, setResults] = useState([]);
@@ -40,11 +38,15 @@ export const useSearch = ({ appId }: Props) => {
         }
     }, [debouncedQuery]);
 
+    const queryNotFound = results.length <= 0 && debouncedQuery.length > 0 && !isLoading;
+    const emptyQuery = results.length <= 0 && query.length <= 0;
+
     return {
         results,
         isLoading,
         onSearchChange,
         debouncedQuery,
         query,
+        queryNotFound, emptyQuery
     };
 };

@@ -1,8 +1,25 @@
 {
-  "name": "react",
+  "name": "@searchmate/react",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "url": "https://github.com/searchmate-app/searchmate-js"
+  },
+  "main": "dist/searchmate-react.es.js",
+  "module": "dist/searchmate-react.es.js",
+  "types": "dist/types.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/searchmate-react.es.js",
+      "require": "./dist/searchmate-react.es.js"
+    },
+    "./dist/index.js": "./dist/searchmate-react.es.js",
+    "./css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",

@@ -35,8 +35,8 @@ export function searchmate({
     "searchmate-container",
   ]);
   backgroundEl.id = "searchmate-docs-search";
-  const dialog = new A11yDialog(backgroundEl)
-  dialog.show()
+  const dialog = new A11yDialog(backgroundEl);
+  dialog.show();
 
   const searchContainer = createElementAndAppend("div", backgroundEl, [
     "searchmate-search-container",
@@ -110,7 +110,7 @@ export function searchmate({
           });
         });
       })
-      .catch((_e) => { });
+      .catch((_e) => {});
   }
 
   const debouncedFetchResults = debounce(fetchResults, 300);
@@ -126,7 +126,7 @@ export function searchmate({
       e.preventDefault();
       const { end } = setSelectedIndex(
         selectedResultIndex + 1,
-        resultContainer
+        resultContainer,
       );
       if (!end) {
         removeSelectedIndex(selectedResultIndex, resultContainer);
@@ -145,7 +145,7 @@ export function searchmate({
     if (e.key === "Enter") {
       e.preventDefault();
       const selectedResult = resultContainer.querySelector(
-        `.${SELECTED_RESULT_CLASS}`
+        `.${SELECTED_RESULT_CLASS}`,
       ) as HTMLAnchorElement;
       if (!selectedResult) return;
       if (overrideNavigateToResult) {
@@ -197,7 +197,7 @@ export function searchmate({
       resultContainer.removeEventListener("touchstart", handleTouchStart);
     }
     backgroundEl.remove();
-    dialog.destroy()
+    dialog.destroy();
     if (onClose) onClose();
   }
 
