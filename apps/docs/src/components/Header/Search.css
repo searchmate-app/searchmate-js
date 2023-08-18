@@ -63,51 +63,39 @@
 }
 
 :root {
-  /* Searchmate */
-  /* container */
-  --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-color: #fff;
+  --sm-background: 0 0% 100%;
+  --sm-foreground: 0 0% 3.9%;
 
-  /* input */
-  --searchmate-input-bg-color: #fff;
-  --searchmate-input-border-color: #f4f4f5;
-  --searchmate-input-text-color: #3f3f46;
-  --searchmate-search-icon-color: #d4d4d8;
-  --searchmate-input-placeholder-color: #d4d4d8;
+  --sm-primary: 0 0% 9%;
+  --sm-primary-foreground: 0 0% 98%;
 
-  /* results */
-  --searchmate-result-text-color: #3f3f46;
-  --searchmate-result-bg: #fafafa;
-  --searchmate-selected-bg: #ef4444;
-  --searchmate-selected-border-color: #f87171;
-  --searchmate-selected-color: #f8fafc;
+  --sm-secondary: 0 0% 96.1%;
+  --sm-secondary-foreground: 0 0% 9%;
 
-  /* footer */
-  --searchmate-footer-text-color: #3f3f46;
+  --sm-muted: 0 0% 96.1%;
+  --sm-muted-foreground: 0 0% 45.1%;
+
+  --sm-border: 0 0% 89.8%;
+  --sm-accent: 262.1 83.3% 57.8%;
+
+  --sm-radius: 0.5rem;
+
+  --dialog-shadow: 0 16px 70px rgb(0 0 0 / 20%);
 }
 
 :root.theme-dark {
-  color-scheme: dark;
+  --sm-background: 0 0% 3.9%;
+  --sm-foreground: 0 0% 98%;
 
-  /* Searchmate */
-  /* container */
-  --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-color: #030712;
+  --sm-primary: 0 0% 98%;
+  --sm-primary-foreground: 0 0% 9%;
 
-  /* input */
-  --searchmate-input-border-color: #1f2937;
-  --searchmate-input-bg-color: #030712;
-  --searchmate-input-text-color: #d1d5db;
-  --searchmate-input-placeholder-color: #4b5563;
-  --searchmate-search-icon-color: #6b7280;
+  --sm-secondary: 0 0% 14.9%;
+  --sm-secondary-foreground: 0 0% 98%;
 
-  /* results */
-  --searchmate-result-bg: #0f172a;
-  --searchmate-result-text-color: #d1d5db;
-  --searchmate-selected-bg: #ef4444;
-  --searchmate-selected-border-color: #ef4444;
-  --searchmate-selected-color: #f8fafc;
+  --sm-muted: 0 0% 14.9%;
+  --sm-muted-foreground: 0 0% 63.9%;
 
-  /* footer */
-  --searchmate-footer-text-color: #d1d5db;
+  --sm-border: 0 0% 14.9%;
+  --sm-accent: 262.1 83.3% 57.8%;
 }
