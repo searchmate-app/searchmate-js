@@ -37,5 +37,5 @@ export interface UseSearchReturn {
     emptyQuery: boolean
 }
 
-export declare const Search: React.FC<SearchProps>;
+export declare const Search: React.FC<SearchMateProps>;
 export declare const useSearch: (props: UseSearchProps) => UseSearchReturn;

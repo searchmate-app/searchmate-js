@@ -35,7 +35,7 @@ function SearchItem({ data, query, onSelect }: SearchItemProps) {
         ref={containerRef}
         value={data.tempId}
         key={data.tempId}
-        onSelect={() => onSelect(`${data.path}`)}
+        onSelect={() => onSelect(`/${data.path}`)}
       >
         <p className="search-result-text">{data.path}</p>
       </Command.Item>
@@ -54,7 +54,7 @@ function SearchItem({ data, query, onSelect }: SearchItemProps) {
               // className="relative flex cursor-default select-none items-center rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 px-2 py-1.5 ml-5"
               value={itemContent.tempId}
               key={itemContent.tempId}
-              onSelect={() => onSelect(`${data.path}#${itemContent.headingId}`)}
+              onSelect={() => onSelect(`/${data.path}#${itemContent.headingId}`)}
             >
               <FrameIcon />{" "}
               <span className="search-result-text">{itemContent.content}</span>
@@ -67,7 +67,7 @@ function SearchItem({ data, query, onSelect }: SearchItemProps) {
               // className="relative flex cursor-default select-none items-center rounded-sm text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 px-2 py-1.5"
               value={itemContent.tempId}
               key={itemContent.tempId}
-              onSelect={() => onSelect(`${data.path}`)}
+              onSelect={() => onSelect(`/${data.path}`)}
             >
               <span className="search-result-text">{itemContent.content}</span>
             </Command.Item>
