@@ -9,5 +9,21 @@ export default defineConfig({
     postcss: {
       plugins: [cssnesting()]
     }
+  },
+  build: {
+    lib: {
+      entry: "src/components/index.ts",
+      name: "searchmate-react",
+      fileName: (format) => `searchmate-react.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    }
   }
 })
