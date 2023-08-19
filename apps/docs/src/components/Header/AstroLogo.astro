@@ -5,7 +5,7 @@ type Props = {
 const { size } = Astro.props;
 ---
 
-<svg
+<!-- <svg
   width={size}
   height={size}
   viewBox="0 0 40 40"
@@ -26,6 +26,22 @@ const { size } = Astro.props;
       <rect width="40" height="40" fill="white"></rect>
     </clipPath>
   </defs>
+</svg> -->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 1000 1000"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <title>logo</title>
+  <rect x="100" y="100" width="800" height="800" rx="200" fill="#000"></rect>
+  <path
+    d="M706 706L587.052 587.052M587.052 587.052C619.245 554.858 637.331 511.194 637.331 465.666C637.331 420.137 619.245 376.473 587.052 344.28C554.858 312.086 511.194 294 465.666 294C420.137 294 376.473 312.086 344.28 344.28C312.086 376.473 294 420.137 294 465.666C294 511.194 312.086 554.858 344.28 587.052C376.473 619.245 420.137 637.331 465.666 637.331C511.194 637.331 554.858 619.245 587.052 587.052Z"
+    stroke-width="50"
+    stroke="#fff"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
 </svg>
 
 <!-- <svg
