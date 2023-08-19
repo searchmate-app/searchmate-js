@@ -30,9 +30,8 @@ export const SIDEBAR: Sidebar = {
   en: {
     General: [
       { text: "Introduction", link: "en/introduction" },
-      { text: "Vanilla JS", link: "en/vanilla-js" },
       { text: "React", link: "en/react" },
-      { text: "Astro", link: "en/astro" },
+      { text: "useSearch", link: "en/use-search" },
     ],
   },
 };

@@ -3,121 +3,103 @@ title: "React"
 description: "Integrate Search Mate in your REACT app"
 ---
 
-This package is a react client for [Searchmate](https://searchmate.app).
+This package is a React client for [Searchmate](https://searchmate.app).
 
-## Quick Start
+## Quick start
 
 ```bash
-npm i searchamte-react
+npm i @searchmate/react
 ```
 
 Once is installed you can use the package now you can import it in your code like this
 
 ```tsx
-import "./App.css";
-import { Search, useSearch } from "searchmate-react";
-import "searchmate-react/css";
+import "./Search.css";
+import { Search } from '@searchmate/react'
+import "@searchmate/react/css";
+import { useEffect, useState } from "react";
 
-function App() {
-  const { isOpen, onOpen, onClose } = useSearch();
-  useShortcut({
-    callback: onOpen,
-    isOpen,
-    key: "k",
-    withCtrl: true,
-  });
-  useShortcut({
-    callback: onOpen,
-    isOpen,
-    key: "/",
-  });
+export default function SearchComponent() {
+  const [open, setOpen] = useState(false)
+
+  // Toggle the menu when ⌘K is pressed
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open) => !open)
+      }
+    }
+
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
+  }, [])
 
   return (
     <>
-      <button onClick={onOpen}>Open search</button>
-      <Search appId={YOUR_APP_ID} isOpen={isOpen} onClose={onClose} />
+      <button type="button" className="search-input" onClick={() => setOpen(true)}>
+        <span>Search</span>
+        <span className="search-hint">
+          <span className="sr-only">Press </span>
+          <kbd>cmd + k</kbd>
+          <span className="sr-only"> to search</span>
+        </span>
+      </button>
+      <Search appId={"e3220f55-0a65-4d57-a067-b42a79101291"} isOpen={open} onOpenChange={setOpen} onResultSelect={(url) => {
+        const anchor = document.createElement("a")
+        anchor.href = url;
+        anchor.click()
+        // window.location.pathname = url
+      }} />
     </>
   );
 }
 
-export default App;
 ```
 
-### CSS variables
+Add the `css variables` needed
 
-Add the needed css variables to your `App.css`
-
-Feel free to change the values to match your theme.
+If you modify the variables make sure that you put the values in `hsl` like the default.
 
 ```css
+/* globals.css */
 :root {
-  /* Searchmate */
-  /* container */
-  --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-color: #fff;
+  --sm-background: 0 0% 100%;
+  --sm-foreground: 0 0% 3.9%;
 
-  /* input */
-  --searchmate-input-bg-color: #fff;
-  --searchmate-input-border-color: #f4f4f5;
-  --searchmate-input-text-color: #3f3f46;
-  --searchmate-search-icon-color: #d4d4d8;
-  --searchmate-input-placeholder-color: #d4d4d8;
+  --sm-primary: 0 0% 9%;
+  --sm-primary-foreground: 0 0% 98%;
 
-  /* results */
-  --searchmate-result-text-color: #3f3f46;
-  --searchmate-result-bg: #fafafa;
-  --searchmate-selected-bg: #ef4444;
-  --searchmate-selected-border-color: #f87171;
-  --searchmate-selected-color: #f8fafc;
+  --sm-secondary: 0 0% 96.1%;
+  --sm-secondary-foreground: 0 0% 9%;
 
-  /* footer */
-  --searchmate-footer-text-color: #3f3f46;
+  --sm-muted: 0 0% 96.1%;
+  --sm-muted-foreground: 0 0% 45.1%;
+
+  --sm-border: 0 0% 89.8%;
+  --sm-accent: 262.1 83.3% 57.8%;
+
+  --sm-radius: 0.5rem;
+
+  --dialog-shadow: 0 16px 70px rgb(0 0 0 / 20%);
 }
-```
 
-### Dark mode
+:root.your-dark-theme-class {
+  --sm-background: 0 0% 3.9%;
+  --sm-foreground: 0 0% 98%;
 
-To add dark mode append the dark variables to your `App.css`
+  --sm-primary: 0 0% 98%;
+  --sm-primary-foreground: 0 0% 9%;
 
-```css
-:root.your-theme-dark-class {
-  color-scheme: dark;
+  --sm-secondary: 0 0% 14.9%;
+  --sm-secondary-foreground: 0 0% 98%;
 
-  /* Searchmate */
-  /* container */
-  --searchmate-container-color: rgba(15, 23, 42, 0.1);
-  --searchmate-search-color: #030712;
+  --sm-muted: 0 0% 14.9%;
+  --sm-muted-foreground: 0 0% 63.9%;
 
-  /* input */
-  --searchmate-input-border-color: #1f2937;
-  --searchmate-input-bg-color: #030712;
-  --searchmate-input-text-color: #d1d5db;
-  --searchmate-input-placeholder-color: #4b5563;
-  --searchmate-search-icon-color: #6b7280;
-
-  /* results */
-  --searchmate-result-bg: #0f172a;
-  --searchmate-result-text-color: #d1d5db;
-  --searchmate-selected-bg: #ef4444;
-  --searchmate-selected-border-color: #ef4444;
-  --searchmate-selected-color: #f8fafc;
-
-  /* footer */
-  --searchmate-footer-text-color: #d1d5db;
+  --sm-border: 0 0% 14.9%;
+  --sm-accent: 262.1 83.3% 57.8%;
 }
-```
-
-## Overriding default navigation
-
-You can override the default navigation by passing a function to the `overrideNavigateToResult` prop.
-
-```tsx
-<Search
-  overrideNavigateToResult={(path, withCtrl) => {
-    // your custom navigation logic
-    console.log(path, withCtrl);
-  }}
-/>
 ```
 
 ## Props
@@ -129,16 +111,6 @@ Here you can find the props for the components and hooks.
 | Name      | Type       | Description                                | Optional |
 | --------- | ---------- | ------------------------------------------ | -------- |
 | isOpen    | boolean    | If the search is open                      | false    |
-| onClose   | () => void | Callback to call when the search is closed | false    |
-| urlPrefix | string     | Url prefix to use for the links            | true     |
+| onOpenChange   | () => void | Callback to call when isOpen change | false    |
 | appId     | string     | App id to use for the search               | false    |
-| overrideNavigateToResult | (path: string, withCtrl: boolean) => void | Override the default navigation | true |
-
-### useShortcut
-
-| Name     | Type       | Description                                     | Optional |
-| -------- | ---------- | ----------------------------------------------- | -------- |
-| key      | string     | Key to trigger the shortcut                     | false    |
-| isOpen   | boolean    | If the search is open                           | false    |
-| withCtrl | boolean    | If the shortcut needs to be pressed with ctrl   | true     |
-| callback | () => void | Callback to call when the shortcut is triggered | false    |
+| onResult | (url: string) => void | Callback when a result is selected | false |

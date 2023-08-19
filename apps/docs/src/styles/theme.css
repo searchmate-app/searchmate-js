@@ -58,8 +58,8 @@
 
 :root {
 	color-scheme: light;
-	--theme-accent: #ef4444;
-	--theme-text-accent: #f87171;
+	--theme-accent: hsl(0 0% 9%);
+	--theme-text-accent: hsl(0 0% 3.9%);
 	--theme-text-accent-active: #fff;
 	--theme-accent-opacity: 0.15;
 	--theme-divider: hsla(var(--color-gray-95), 1);
@@ -71,7 +71,7 @@
 	--theme-bg: hsla(var(--color-base-white), 100%, 1);
 	--theme-bg-hover: #fee2e220;
 	--theme-bg-offset: #f1f5f9;
-	--theme-bg-accent: #ef4444;
+	--theme-bg-accent: hsl(0 0% 9%);
 	--theme-code-inline-bg: hsla(var(--color-gray-95), 1);
 	--theme-code-inline-text: var(--theme-text);
 	--theme-code-bg: #0f172a;
@@ -89,22 +89,22 @@ body {
 :root.theme-dark {
 	color-scheme: dark;
 	--theme-accent-opacity: 0.15;
-	--theme-accent: #f87171;
-	--theme-text-accent: #f87171;
-	--theme-divider: #0f172a;
+	--theme-accent: hsl(0 0% 98%);
+	--theme-text-accent: hsl(0 0% 98%);
+	--theme-divider: hsl(0 0% 14.9%);
 	--theme-text: #f8fafc;
 	--theme-text-light: #f8fafc;
 
 	/* @@@: not used anywhere */
 	--theme-text-lighter: hsla(var(--color-gray-40), 1);
-	--theme-bg: #020617;
+	--theme-bg: hsl(0 0% 3.9%);
 	--theme-bg-hover: #fee2e220;
 	--theme-bg-offset: #334155;
-	--theme-code-inline-bg: #0f172a;
-	--theme-code-inline-text: hsla(var(--color-base-white), 100%, 1);
+	--theme-code-inline-bg: hsl(0 0% 14.9%);
+	--theme-code-inline-text: hsl(0 0% 63.9%);
 	--theme-code-bg: #0f172a;
 	--theme-code-text: hsla(var(--color-base-white), 100%, 1);
-	--theme-navbar-bg: #020617;
+	--theme-navbar-bg: hsl(0 0% 3.9%);
 	--theme-selection-color: #f8fafc;
 	--theme-selection-bg: #fee2e250;
 }
