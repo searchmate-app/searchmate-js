@@ -54,6 +54,8 @@ export default function SearchComponent() {
 
 Add the `css variables` needed
 
+If you modify the variables make sure that you put the values in `hsl` like the default.
+
 ```css
 /* globals.css */
 :root {
